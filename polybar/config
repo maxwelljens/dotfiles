@@ -1,0 +1,106 @@
+[colours]
+; Gruvbox medium colours
+fg = #ebdbb2
+bg0 = #282828
+bg1 = #3c3836
+red = #cc241d
+grn = #98971a
+ylw = #d79921
+blu = #458588
+prl = #b16286
+aqa = #689d6a
+gry = #a89984
+
+[bar/taskbar]
+; bspwm configuration
+scroll-up = #bspwm.prev
+scroll-down = #bspwm.next
+; General configuration
+monitor = ${env:MONITOR:}
+wm-restack = bspwm
+locale = nb_NO.UTF-8
+bottom = true
+tray-position = none
+; Module configuration
+modules-left = bspwm
+modules-center = title
+modules-right = memory cpu pulseaudio date
+; Visual configuration
+background = ${colours.bg0}
+foreground = ${colours.fg}
+module-margin = 1
+height = 26 
+padding = 2
+font-0 = JetBrains Mono:size=9
+
+[module/bspwm]
+type = internal/bspwm
+; Visible
+label-visible = %name%
+label-visible-foreground = ${colours.fg}
+label-visible-background = ${colours.bg1}
+label-visible-padding = 1
+; Unfocused
+label-unfocused = %name%
+label-unfocused-foreground = ${colours.fg}
+label-unfocused-background = ${colours.bg1}
+label-unfocused-padding = 1
+; Focused
+label-focused = %name%
+label-focused-foreground = ${colours.bg0}
+label-focused-background = ${colours.gry}
+label-focused-padding = 1
+; Occupied
+label-occupied = %name%
+label-occupied-foreground = ${colours.fg}
+label-occupied-background = ${colours.bg1}
+label-occupied-padding = 1
+; Urgent
+label-urgent = %name%
+label-urgent-foreground = ${colours.bg0}
+label-urgent-background = ${colours.red}
+label-urgent-padding = 1
+; General
+label-separator = " "
+
+[module/title]
+type = internal/xwindow
+format-foreground = ${colours.fg}
+label-maxlen = 100
+
+[module/memory]
+type = internal/memory
+interval = 3
+format = <ramp-used>
+ramp-used-foreground = ${colours.ylw}
+ramp-used-0 = ▁
+ramp-used-1 = ▂
+ramp-used-2 = ▃
+ramp-used-3 = ▄
+ramp-used-4 = ▅
+ramp-used-5 = ▆
+ramp-used-6 = ▇
+ramp-used-7 = █
+
+[module/cpu]
+type = internal/cpu
+format = <ramp-load>
+ramp-load-foreground = ${colours.blu}
+ramp-load-0 = ▁
+ramp-load-1 = ▂
+ramp-load-2 = ▃
+ramp-load-3 = ▄
+ramp-load-4 = ▅
+ramp-load-5 = ▆
+ramp-load-6 = ▇
+ramp-load-7 = █
+
+[module/pulseaudio]
+type = internal/pulseaudio
+use-ui-max = false
+format-volume = <label-volume>
+
+[module/date]
+type = internal/date
+date = %a %d. %b %H:%M
+interval = 40
