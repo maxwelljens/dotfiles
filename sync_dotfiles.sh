@@ -14,6 +14,6 @@ mkdir rofi &> /dev/null; cp ~/.config/rofi/config.rasi ./rofi/
 mkdir polybar &> /dev/null; cp ~/.config/polybar/config ./polybar/
 mkdir polybar &> /dev/null; cp ~/.config/polybar/launch.sh ./polybar/
 # zsh
-cp ~/.zshrc .
+cp -a ~/.zshrc .
 # background image
-cp ~/.bg.png .
+cp -a ~/.bg.png .
