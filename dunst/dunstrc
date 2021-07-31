@@ -29,7 +29,7 @@
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "300x5-60+20"
+    geometry = "300x5+60+60"
 
     # Turn on the progess bar
     progress_bar = true
@@ -81,10 +81,10 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 3
+    frame_width = 2
 
     # Defines color of the frame around the notification window.
-    frame_color = "#3c3836"
+    frame_color = "#a89984"
 
     # Define a color for the separator.
     # possible values are:
@@ -329,6 +329,7 @@
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#282828"
     foreground = "#ebdbb2"
+    frame_color = "#3c3836"
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
@@ -336,7 +337,6 @@
 [urgency_normal]
     background = "#282828"
     foreground = "#ebdbb2"
-    frame_color = "#458588"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
     #icon = /path/to/icon
