@@ -23,7 +23,7 @@ precmd() { vcs_info }
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr '!'
 zstyle ':vcs_info:*' unstagedstr '?' 
-zstyle ":vcs_info:git:*" formats "%B%F{blue}%b%f %u%c"
+zstyle ":vcs_info:*" formats "%B%F{blue}%b%f %u%c"
 # Set up the prompt (with git branch name)
 setopt PROMPT_SUBST
 RPROMPT="\$vcs_info_msg_0_"
