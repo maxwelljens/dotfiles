@@ -24,7 +24,7 @@ tray-position = none
 ; Module configuration
 modules-left = bspwm
 modules-center = title
-modules-right = memory cpu pulseaudio date
+modules-right = pulseaudio memory cpu date
 ; Visual configuration
 background = ${colours.bg0}
 foreground = ${colours.fg}
@@ -70,7 +70,7 @@ label-maxlen = 100
 
 [module/memory]
 type = internal/memory
-interval = 3
+interval = 5
 format = <ramp-used>
 ramp-used-foreground = ${colours.ylw}
 ramp-used-0 = ▁
