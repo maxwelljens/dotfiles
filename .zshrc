@@ -20,13 +20,14 @@ bindkey -v
 autoload -Uz vcs_info
 precmd() { vcs_info }
 # Format the vcs_info_msg_0_ variable
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' stagedstr '!'
-zstyle ':vcs_info:*' unstagedstr '?' 
-zstyle ":vcs_info:*" formats "%B%F{blue}%b%f %u%c"
+zstyle ":vcs_info:*" enable git
+zstyle ":vcs_info:*" check-for-changes true
+zstyle ":vcs_info:*" stagedstr "!"
+zstyle ":vcs_info:*" unstagedstr "?"
+zstyle ":vcs_info:*" formats "%F{yellow}%u%f%F{red}%c%f %F{blue}%b%f/%r"
 # Set up the prompt (with git branch name)
 setopt PROMPT_SUBST
-RPROMPT="\$vcs_info_msg_0_"
+RPROMPT="%B\$vcs_info_msg_0_%b"
 # Left side prompt
 PROMPT="%(0?.%B%F{blue}>%f%b.%B%F{red}%? >%f%b) "
 
