@@ -24,7 +24,7 @@ tray-position = none
 ; Module configuration
 modules-left = bspwm
 modules-center = title
-modules-right = pulseaudio memory cpu date
+modules-right = memory cpu date
 ; Visual configuration
 background = ${colours.bg0}
 foreground = ${colours.fg}

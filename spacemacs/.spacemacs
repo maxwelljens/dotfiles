@@ -38,24 +38,30 @@ This function should only modify configuration layer settings."
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ;; auto-completion
+     auto-completion
      ;; better-defaults
      emacs-lisp
      ;; git
+     (haskell :variables
+       haskell-completion-backend 'dante)
      helm
      lsp
      markdown
      multiple-cursors
      (latex :variables
-              latex-backend 'lsp
-              latex-refresh-preview t)
-     ;; org
+       latex-backend 'lsp
+       latex-refresh-preview t)
+     (org :variables
+       org-enable-org-contacts-support t
+       org-contacts-files '("~/Org/contacts.org")
+       org-agenda-files '("~/Org/todo.org"))
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      ;; spell-checking
      syntax-checking
-     (unicode-fonts :variables unicode-fonts-enable-ligatures t)
+     (unicode-fonts :variables
+       unicode-fonts-enable-ligatures t)
      ;; version-control
      treemacs)
 
@@ -549,7 +555,7 @@ Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (let ((path (shell-command-to-string ". ~/.zshrc; echo -n $PATH")))
     (setenv "PATH" path)
-    (setq exec-path 
+    (setq exec-path
       (append
       (split-string-and-unquote path ":")
       exec-path))))
@@ -568,7 +574,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
-   '(unicode-fonts ucs-utils font-utils persistent-soft pcache ligature mmm-mode markdown-toc gh-md pdf-view-restore pdf-tools tablist nim-mode flycheck-nimsuggest commenter epc ctable concurrent deferred flycheck-nim yasnippet-snippets lsp-ui lsp-treemacs lsp-origami origami lsp-latex helm-lsp lsp-mode markdown-mode helm-company helm-c-yasnippet fuzzy flycheck-pos-tip pos-tip company-reftex company-math company-auctex company auto-yasnippet yasnippet ac-ispell auto-complete math-symbol-lists auctex ws-butler writeroom-mode winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package undo-tree treemacs-projectile treemacs-persp treemacs-icons-dired treemacs-evil toc-org symon symbol-overlay string-inflection string-edit spaceline-all-the-icons restart-emacs request rainbow-delimiters quickrun popwin pcre2el password-generator paradox overseer org-superstar open-junk-file nameless multi-line macrostep lorem-ipsum link-hint indent-guide hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-org helm-mode-manager helm-make helm-ls-git helm-flx helm-descbinds helm-ag gruvbox-theme google-translate golden-ratio font-lock+ flycheck-package flycheck-elsa flx-ido fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-easymotion evil-collection evil-cleverparens evil-args evil-anzu eval-sexp-fu emr elisp-slime-nav editorconfig dumb-jump drag-stuff dotenv-mode dired-quick-sort diminish define-word column-enforce-mode clean-aindent-mode centered-cursor-mode auto-highlight-symbol auto-compile aggressive-indent ace-link ace-jump-helm-line)))
+   '(org-vcard org-rich-yank org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download org-contrib org org-cliplink htmlize helm-org-rifle gnuplot evil-org lsp-haskell hlint-refactor hindent helm-hoogle haskell-snippets flycheck-haskell dante lcr haskell-mode company-cabal cmm-mode attrap unicode-fonts ucs-utils font-utils persistent-soft pcache ligature mmm-mode markdown-toc gh-md pdf-view-restore pdf-tools tablist nim-mode flycheck-nimsuggest commenter epc ctable concurrent deferred flycheck-nim yasnippet-snippets lsp-ui lsp-treemacs lsp-origami origami lsp-latex helm-lsp lsp-mode markdown-mode helm-company helm-c-yasnippet fuzzy flycheck-pos-tip pos-tip company-reftex company-math company-auctex company auto-yasnippet yasnippet ac-ispell auto-complete math-symbol-lists auctex ws-butler writeroom-mode winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package undo-tree treemacs-projectile treemacs-persp treemacs-icons-dired treemacs-evil toc-org symon symbol-overlay string-inflection string-edit spaceline-all-the-icons restart-emacs request rainbow-delimiters quickrun popwin pcre2el password-generator paradox overseer org-superstar open-junk-file nameless multi-line macrostep lorem-ipsum link-hint indent-guide hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-org helm-mode-manager helm-make helm-ls-git helm-flx helm-descbinds helm-ag gruvbox-theme google-translate golden-ratio font-lock+ flycheck-package flycheck-elsa flx-ido fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-easymotion evil-collection evil-cleverparens evil-args evil-anzu eval-sexp-fu emr elisp-slime-nav editorconfig dumb-jump drag-stuff dotenv-mode dired-quick-sort diminish define-word column-enforce-mode clean-aindent-mode centered-cursor-mode auto-highlight-symbol auto-compile aggressive-indent ace-link ace-jump-helm-line)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
