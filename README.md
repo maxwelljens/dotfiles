@@ -1,7 +1,7 @@
 # Dotfiles
 
-![Background image](screenshots/img0.png)
-![Background image](screenshots/img1.png)
+![Background image](img/img0.png)
+![Background image](img/img1.png)
 
 ## Configuration
 
