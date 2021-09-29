@@ -29,11 +29,12 @@ zstyle ":vcs_info:*" formats "%F{yellow}%u%f%F{red}%c%f %F{blue}%b%f/%r"
 setopt PROMPT_SUBST
 RPROMPT="%B\$vcs_info_msg_0_%b"
 # Left side prompt
-PROMPT="%(0?.%B%F{blue}>%f%b.%B%F{red}%? >%f%b) "
+PROMPT="%(0?.%B%F{blue}λ%f%b.%B%F{red}%? λ%f%b) "
 
 # $PATH configuration
 # ------------------------------------------------------------------------------
 # Example: export PATH=/home/maxwellj/.thing/program:$PATH
+export PATH=/home/maxwellj/.nimble/bin:$PATH
 
 # nnn (file manager) configuration
 # ------------------------------------------------------------------------------
@@ -41,6 +42,12 @@ PROMPT="%(0?.%B%F{blue}>%f%b.%B%F{red}%? >%f%b) "
 export NNN_PLUG="p:preview-tui"
 # FIFO to write hovered file path to
 export NNN_FIFO="/tmp/nnn.fifo"
+
+# Other exports
+# ------------------------------------------------------------------------------
+export VISUAL=/usr/bin/vim
+export EDITOR="$VISUAL"
+export PAGER=/usr/bin/most
 
 # zsh plugins; has to be at the end
 # ------------------------------------------------------------------------------

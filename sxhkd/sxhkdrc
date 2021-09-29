@@ -16,7 +16,7 @@ super + Escape
 
 # screenshot
 Print
-  exec maim -s | xclip -selection clipboard -t image/png
+  maim -s | xclip -selection clipboard -t image/png
 
 #
 # pulseaudio keys
