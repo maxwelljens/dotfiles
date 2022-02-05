@@ -1,22 +1,28 @@
 #!/usr/bin/sh
 
 # Autostart applications
-pgrep -x sxhkd > /dev/null || sxhkd &
-pgrep -x steam > /dev/null || steam &
-pgrep -x chromium-browser-privacy > /dev/null || chromium-browser-privacy &
-pgrep -x telegram-desktop > /dev/null || telegram-desktop &
-pgrep -x vim > /dev/null || kitty --class Vim vim &
-pgrep -x aerc > /dev/null || kitty --class aerc aerc &
-pgrep -x redshift > /dev/null || redshift &
 feh --bg-scale ~/.bg.png &
 $HOME/.config/polybar/launch.sh &
+pgrep -x sxhkd > /dev/null || sxhkd &
+pgrep -x steam > /dev/null || steam &
+pgrep -x fireofx > /dev/null || firefox &
+pgrep -x telegram-desktop > /dev/null || telegram-desktop &
+pgrep -x nvim > /dev/null || kitty --class NVim nvim &
+pgrep -x aerc > /dev/null || kitty --class aerc aerc &
+pgrep -x newsboat > /dev/null || kitty --class newsboat newsboat &
+pgrep -x calcurse > /dev/null || kitty --class calcurse calcurse &
+pgrep -x tickrs > /dev/null || kitty --class tickrs tickrs &
+pgrep -x buckle > /dev/null || buckle &
+pgrep -x redshift > /dev/null || redshift &
+startup.sh &
 
 # Monitor setup
 bspc monitor DisplayPort-0 -d Vim Steam III IV V
-bspc monitor HDMI-A-0 -d Chromium Telegram VIII IX X
+bspc monitor HDMI-A-0 -d Firefox Telegram Info IX X
 
 # Desktop setup
 bspc desktop Steam -l monocle
+bspc desktop Info -l monocle
 
 # Aesthetic & function
 bspc config border_width             2
@@ -29,8 +35,11 @@ bspc config focused_border_color     "#a89984"
 bspc config split_ratio              0.62
 
 # Application rules
-bspc rule -a Vim desktop="Vim"
-bspc rule -a Chromium-browser-privacy desktop="Chromium"
+bspc rule -a NVim desktop="NVim"
+bspc rule -a Firefox desktop="Firefox"
 bspc rule -a Steam desktop="Steam"
 bspc rule -a TelegramDesktop desktop="Telegram"
-bspc rule -a aerc desktop="VIII"
+bspc rule -a aerc desktop="Info"
+bspc rule -a newsboat desktop="Info"
+bspc rule -a calcurse desktop="Info"
+bspc rule -a tickrs desktop="Info"

@@ -1,4 +1,4 @@
 configuration {
-  theme: "gruvbox-dark";
-  font: "JetBrains Mono 9";
+  font: "Iosevka SS15 Light 11";
 }
+@theme "gruvbox-dark"

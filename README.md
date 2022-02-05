@@ -5,6 +5,7 @@
 
 ## Configuration
 
++ neovim
 + bspwm
 + sxhkd
 + kitty

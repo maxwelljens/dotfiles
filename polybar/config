@@ -31,7 +31,7 @@ foreground = ${colours.fg}
 module-margin = 1
 height = 26 
 padding = 2
-font-0 = JetBrains Mono:size=9
+font-0 = Iosevka SS15 Light Extended:size=9
 
 [module/bspwm]
 type = internal/bspwm
