@@ -278,7 +278,17 @@ parser_configs.norg_table = {
   },
 }
 require('nvim-treesitter.configs').setup{
-  ensure_installed = { "bash", "rust", "python", "go", "norg", "norg_meta", "norg_table", "markdown"},
+  ensure_installed = {
+    "bash",
+    "rust",
+    "python",
+    "go",
+    "latex",
+    "lua",
+    "norg",
+    "norg_meta",
+    "norg_table",
+    "markdown" },
   highlight = { enable = true }
 }
 
@@ -322,7 +332,7 @@ local get_color = require'lualine.utils.utils'.extract_highlight_colors
 local gps = require('nvim-gps')
 require('lualine').setup {
   options = {
-    theme = 'gruvbox-material', 
+    theme = 'gruvbox-material',
     disabled_filetypes = { 'minimap', 'NvimTree' },
   },
   sections = {
