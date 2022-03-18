@@ -21,7 +21,6 @@ Plug 'winston0410/cmd-parser.nvim' " Required by range-highlight.nvim
 Plug 'winston0410/range-highlight.nvim' " Highlights ranges in commandline
 Plug 'lukas-reineke/indent-blankline.nvim' " Show indent levels
 Plug 'RRethy/vim-illuminate'     " Highlight same words under cursor
-Plug 'sunjon/shade.nvim'         " Dim unfocused windows
 Plug 'junegunn/vim-easy-align'   " Align elements with spaces
 Plug 'tpope/vim-surround'        " Surround text objects with text
 Plug 'windwp/nvim-autopairs'     " Autopair plugin
@@ -135,10 +134,10 @@ let g:dashboard_custom_section={
     \ 'command': 'SessionLoad' },
   \ 'find_file': {
     \ 'description': ['Find file'],
-    \ 'command': 'DashboardFindFile' },
+    \ 'command': 'Files' },
   \ 'find_word': {
     \ 'description': ['Find word'],
-    \ 'command': 'DashboardFindWord' },
+    \ 'command': 'Rg' },
   \ }
 
 let bufferline = get(g:, 'bufferline', {})
@@ -191,33 +190,74 @@ wk.register({
 
   -- GENERAL BINDINGS
   -- Top level
-  ["<leader>d"] = { "<cmd>Dashboard<cr>", "Open Dashboard" },
   ["<leader>n"] = { "<cmd>NvimTreeToggle<cr>", "Toggle NvimTree" },
+  ["<leader>r"] = { "<cmd>DashboardFindHistory<cr>", "Recently opened files" },
+  ["<leader>f"] = { "<cmd>Files<cr>", "Find file" },
+  ["<leader>/"] = { "<cmd>DashboardFindWord<cr>", "Find word" },
   ["<leader>|"] = { "<cmd>vsplit<cr>", "Vertical split" },
   ["<leader>-"] = { "<cmd>split<cr>", "Horizontal split" },
-  -- splitjoin.vim
-  ["gS"] = {"One line to multiple" },
-  ["gJ"] = {"Multiple lines to one" },
-  -- vim-easy-align
-  ["ga"] = { "<cmd>EasyAlign<cr>", "Easy align" },
-  -- Utilities
-  ["<leader>u"] = { name = "Utilities"},
-  ["<leader>up"] = { "<cmd>PlugUpdate<cr>", "Plug Update" },
-  ["<leader>ug"] = { "<cmd>Glow<cr>", "Markdown preview" },
-  -- buffers
+  ["<leader>@"] = { "<cmd>FocusSplitNicely<cr>", "Golden ratio split" },
+  -- buffer & barbar.nvim
   ["<leader>b"] = { name = "Buffer" },
   ["<leader>be"] = { "<cmd>new<cr>", "New buffer" },
-  ["<leader>bd"] = { "<cmd>bd<cr>", "Delete buffer" },
-  ["<leader>bn"] = { "<cmd>bn<cr>", "Next buffer" },
-  ["<leader>bp"] = { "<cmd>bp<cr>", "Previous buffer" },
-  -- windows
+  ["<leader>bd"] = { "<cmd>BufferClose<cr>", "Delete buffer" },
+  ["<leader>b!"] = { "<cmd>BufferCloseAllButCurrent<cr>", "Delete all buffers but focused" },
+  ["<leader>bn"] = { "<cmd>BufferNext<cr>", "Next buffer" },
+  ["<leader>bp"] = { "<cmd>BufferNext<cr>", "Previous buffer" },
+  ["<leader>by"] = { "<cmd>BufferPick<cr>", "Pick buffer" },
+  ["<leader>b>"] = { "<cmd>BufferMoveNext<cr>", "Move to next buffer" },
+  ["<leader>b<lt>"] = { "<cmd>BufferMovePrevious<cr>", "Move to previous buffer" },
+  ["<leader>b1"] = { "<cmd>BufferGoto 1<cr>", "Focus buffer 1" },
+  ["<leader>b2"] = { "<cmd>BufferGoto 2<cr>", "Focus buffer 2" },
+  ["<leader>b3"] = { "<cmd>BufferGoto 3<cr>", "Focus buffer 3" },
+  ["<leader>b4"] = { "<cmd>BufferGoto 4<cr>", "Focus buffer 4" },
+  ["<leader>b5"] = { "<cmd>BufferGoto 5<cr>", "Focus buffer 5" },
+  ["<leader>b6"] = { "<cmd>BufferGoto 6<cr>", "Focus buffer 6" },
+  ["<leader>b7"] = { "<cmd>BufferGoto 7<cr>", "Focus buffer 7" },
+  ["<leader>b8"] = { "<cmd>BufferGoto 8<cr>", "Focus buffer 8" },
+  ["<leader>b9"] = { "<cmd>BufferGoto 9<cr>", "Focus buffer 9" },
+  ["<leader>b0"] = { "<cmd>BufferLast<cr>", "Focus last buffer" },
+  ["<leader>bs"] = { name = "Sort" },
+  ["<leader>bsn"] = { "<cmd>BufferOrderByBufferNumber<cr>", "By number" },
+  ["<leader>bsd"] = { "<cmd>BufferOrderByDirectory<cr>", "By directory" },
+  ["<leader>bsl"] = { "<cmd>BufferOrderByLanguage<cr>", "By language" },
+  -- windows & focus.nvim
   ["<leader>w"] = { name = "Window" },
   ["<leader>wd"] = { "<cmd>q<cr>", "Delete window" },
   ["<leader>wf"] = { "<cmd>q!<cr>", "Force delete window" },
   ["<leader>wa"] = { "<cmd>qa<cr>", "Quit" },
   ["<leader>w!"] = { "<cmd>qa!<cr>", "Force quit" },
+  ["<leader>w="] = { "<cmd>FocusEqualise<cr>", "Balance splits" },
+  ["<leader>wm"] = { "<cmd>FocusMaximise<cr>", "Maximise window" },
+  ["<leader>wt"] = { "<cmd>FocusMaxOrEqual<cr>", "Toggle balance/maximise" },
+  -- LSP
+  ["<leader>l"] = { name = "LSP" },
+  ["<leader>la"] = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Hover action" },
+  ["<leader>lj"] = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Jump to declaration" },
+  ["<leader>lf"] = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Jump to definition" },
+  ["<leader>ld"] = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Show ref/doc" },
+  ["<leader>lc"] = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Refactor symbol" },
+  -- Utilities
+  ["<leader>u"] = { name = "Utilities"},
+  ["<leader>ud"] = { "<cmd>Dashboard<cr>", "Open Dashboard" },
+  ["<leader>up"] = { "<cmd>PlugUpdate<cr>", "Plug Update" },
+  ["<leader>ug"] = { "<cmd>Glow<cr>", "Markdown preview" },
+  -- splitjoin.vim
+  ["gS"] = {"One line to multiple" },
+  ["gJ"] = {"Multiple lines to one" },
+  -- vim-easy-align
+  ["ga"] = { "<cmd>EasyAlign<cr>", "Easy align" },
+  -- neorg
+  ["<leader>o"] = { name = "Neorg" },
+  ["<leader>o"] = { name = "Neorg" },
+  -- rust-tools.nvim
+  ["<leader>r"] = { name = "Rust" },
+  ["<leader>rd"] = { "<cmd>lua require'rust-tools.hover_actions'.hover_actions()<cr>", "Show ref/doc" },
+  ["<leader>re"] = { "<cmd>lua require'rust-tools.expand_macro'.expand_macro()<cr>", "Expand macro" },
+  ["<leader>ri"] = { "<cmd>RustToggleInlayHints<cr>", "Toggle inlay hints" },
+  ["<leader>rj"] = { "<cmd>lua require'rust-tools.join_lines'.join_lines()<cr>", "Join lines" },
 
-  -- PLUGIN BINDINGS
+  -- EXISTING PLUGIN BINDINGS
   -- Comment.nvim
   ["gc"] = { name = "Comment line" },
   ["gcc"] = { "Comment line linewise" },
@@ -231,18 +271,16 @@ wk.register({
   ["yS"] = { "Surroundings own line" },
   ["yss"] = { "Ignore leading whitespace" },
   ["ySS"] = { "Ignore leading whitespace" },
-  -- rust-tools.nvim
-  ["<leader>r"] = { name = "Rust" },
-  ["<leader>rd"] = { "<cmd>lua require'rust-tools.hover_actions'.hover_actions()<cr>", "Show ref/doc" },
-  ["<leader>re"] = { "<cmd>lua require'rust-tools.expand_macro'.expand_macro()<cr>", "Expand macro" },
-  ["<leader>ri"] = { "<cmd>RustToggleInlayHints<cr>", "Toggle inlay hints" },
-  ["<leader>rj"] = { "<cmd>lua require'rust-tools.join_lines'.join_lines()<cr>", "Join lines" },
 })
 
 -- VISUAL MODE which-keys
 wk.register({
+
+  -- GENERAL BINDINGS
   -- vim-easy-align
   ["ga"] = { "<cmd>EasyAlign<cr>", "Easy align" },
+
+  -- EXISTING PLUGIN BINDINGS
   -- Comment.nvim
   ["gc"] = { "Comment line" },
   ["gb"] = { "Comment block" },
@@ -256,9 +294,26 @@ require('nvim-gps').setup{ disable_icons = true }
 require("indent_blankline").setup { filetype_exclude = { "dashboard", "NvimTree" } }
 require('range-highlight').setup{}
 require('colorizer').setup{}
-require('shade').setup{}
 require('Comment').setup{}
-require('neorg').setup{ load = { ["core.defaults"] = {} } }
+
+require('neorg').setup{
+  load = {
+    ["core.defaults"] = {},
+    ["core.norg.qol.toc"] = {},
+    ["core.keybinds"] = {
+      config = {
+        default_keybinds = false,
+      }
+    },
+    ["core.norg.dirman"] = {
+      config = {
+        workspaces = {
+          home = "~/Neorg",
+        }
+      }
+    }
+  }
+}
 
 local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
 -- These two are optional and provide syntax highlighting
