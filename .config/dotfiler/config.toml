@@ -1,0 +1,12 @@
+repo_path = "~/.local/share/dotfiler/df.git"   # optional, defaults to this
+remote_url = "ssh://git@codeberg.org/maxwelljensen/dotfiles.git" # optional, skips push if absent
+ssh_key = "~/.ssh/codeberg"
+
+# Directories are synced recursively, not secret-scanned
+files = [
+  ".zshrc",
+  ".config/nvim",
+  ".config/alacritty",
+  ".config/dotfiler",
+  ".znap",
+]
