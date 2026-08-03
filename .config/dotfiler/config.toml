@@ -5,8 +5,11 @@ ssh_key = "~/.ssh/codeberg"
 # Directories are synced recursively, not secret-scanned
 files = [
   ".zshrc",
+  ".zshenv",
+  ".config/crush",
   ".config/nvim",
   ".config/alacritty",
   ".config/dotfiler",
+  ".config/niri",
   ".znap",
 ]

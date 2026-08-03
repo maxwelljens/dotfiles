@@ -1,0 +1,34 @@
+{
+  "$schema": "https://charm.land/crush.json",
+  "mcp": {
+    "mcp_gopls": {
+      "type": "stdio",
+      "command": "gopls",
+      "args": ["mcp"]
+    },
+    "mcp_browser": {
+      "type": "stdio",
+      "command": "lightpanda",
+      "args": ["mcp"]
+    }
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "name": "rtk",
+        "matcher": "bash",
+        "command": "rtk-rewrite.sh"
+      }
+    ]
+  },
+  "permissions": {
+    "allowed_tools": [
+      "view",
+      "ls",
+      "grep",
+      "edit",
+      "mcp_gopls",
+      "mcp_browser"
+    ]
+  }
+}
