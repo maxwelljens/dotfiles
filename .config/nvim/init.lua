@@ -1,3 +1,5 @@
+require("config.lazy")
+
 -- Włączenie integracji z systemowym schowkiem
 vim.opt.clipboard = "unnamedplus"
 
