@@ -1,7 +1,6 @@
-require("config.lazy")
-
 -- Włączenie integracji z systemowym schowkiem
 vim.opt.clipboard = "unnamedplus"
+vim.opt.termguicolors = true
 
 -- Definicja niestandardowego dostawcy schowka dla DMS (Dank Linux)
 vim.g.clipboard = {
