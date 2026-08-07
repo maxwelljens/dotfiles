@@ -1,0 +1,4 @@
+# Mutt's HTML part is shown inline (copiousoutput entry),
+# the non-copiousoutput entry opens it in the browser via the \Cf keybind.
+text/html; $HOME/.config/neomutt/open-html %s ; nametemplate=%s.html
+text/html; pandoc -f html -t plain --wrap=none %s; copiousoutput;

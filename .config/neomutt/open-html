@@ -1,0 +1,8 @@
+#!/bin/sh
+# Opens a MIME part (passed as %s by mutt) in the default browser.
+tempdir="${XDG_CACHE_HOME:-$HOME/.cache}/neomutt/files"
+file="$tempdir/${1##*/}"
+mkdir -p "$tempdir"
+cp -f "$1" "$file"
+setsid -f xdg-open "$file" >/dev/null 2>&1
+find "${tempdir:?}" -mtime +1 -type f -delete

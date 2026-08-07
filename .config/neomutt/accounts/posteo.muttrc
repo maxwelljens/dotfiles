@@ -1,0 +1,26 @@
+# vim: filetype=neomuttrc
+
+set real_name = "Maxwell Jensen"
+set from = "maxwelljensen@posteo.net"
+set hostname = "posteo.net"
+alias me Maxwell Jensen <maxwelljensen@posteo.net>
+
+# Incoming: IMAP, posteo.de, TLS on port 993
+set folder = "imaps://posteo.de"
+set imap_user = "maxwelljensen@posteo.net"
+set imap_pass = "`pass show mail/posteo`"
+
+# Outgoing: SMTP, posteo.de, TLS on port 465
+set smtp_url = "smtps://maxwelljensen%40posteo.net@posteo.de:465"
+set smtp_pass = "`pass show mail/posteo`"
+set smtp_authenticators = "login"
+
+set spool_file = "+INBOX"
+set postponed = "+Drafts"
+set trash = "+Trash"
+set record = "+Sent"
+
+set header_cache = "$HOME/.cache/neomutt/headers"
+set message_cache_dir = "$HOME/.cache/neomutt/bodies"
+
+mailboxes +INBOX +Sent +Drafts +Trash +Junk

@@ -8,6 +8,7 @@ files = [
   ".zshenv",
   ".config/crush",
   ".config/nvim",
+  ".config/neomutt",
   ".config/alacritty",
   ".config/dotfiler",
   ".config/niri",
