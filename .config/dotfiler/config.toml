@@ -6,6 +6,7 @@ ssh_key = "~/.ssh/codeberg"
 files = [
   ".zshrc",
   ".zshenv",
+  ".config/bin",
   ".config/crush",
   ".config/nvim",
   ".config/alacritty",

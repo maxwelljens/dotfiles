@@ -1,0 +1,60 @@
+{
+    "default_path": "/home/mjensen/.local/bin",
+    "bins": {
+        "/home/mjensen/.local/bin/bin": {
+            "path": "/home/mjensen/.local/bin/bin",
+            "remote_name": "bin_0.29.1_linux_amd64",
+            "version": "v0.29.1",
+            "hash": "f338bf89c500b348644a9a49b99adc4748e69b1c85ed43c463356847a1e1aa8b",
+            "url": "https://github.com/marcosnils/bin/releases/tag/v0.29.1",
+            "provider": "github",
+            "package_path": "",
+            "selected_asset": "bin_0.29.1_linux_amd64",
+            "pinned": false
+        },
+        "/home/mjensen/.local/bin/cmd": {
+            "path": "/home/mjensen/.local/bin/cmd",
+            "remote_name": "cmd",
+            "version": "v1.0.2",
+            "hash": "927895cc876cee97754efa7f6f0b6094494e3f3bc27b9e44d9a472a060500947",
+            "url": "https://codeberg.org/maxwelljensen/bibel",
+            "provider": "codeberg",
+            "package_path": "cmd",
+            "selected_asset": "bibel_Linux_x86_64.tar.gz",
+            "pinned": false
+        },
+        "/home/mjensen/.local/bin/crush": {
+            "path": "/home/mjensen/.local/bin/crush",
+            "remote_name": "crush",
+            "version": "v0.88.1",
+            "hash": "57033d7faeea4a7c85e9ee32a0de55500b249ea57fb861d05bb2914443d7dd14",
+            "url": "https://github.com/charmbracelet/crush/releases/tag/v0.88.1",
+            "provider": "github",
+            "package_path": "crush_0.88.1_Linux_x86_64/crush",
+            "selected_asset": "crush_0.88.1_Linux_x86_64.tar.gz",
+            "pinned": false
+        },
+        "/home/mjensen/.local/bin/lightpanda": {
+            "path": "/home/mjensen/.local/bin/lightpanda",
+            "remote_name": "lightpanda-x86_64-linux",
+            "version": "nightly",
+            "hash": "f9655f76682541f28cab56e76dfdf5dc55ced2b3b2ebf8eaf560745b641e0f6d",
+            "url": "https://github.com/lightpanda-io/browser",
+            "provider": "github",
+            "package_path": "",
+            "selected_asset": "lightpanda-x86_64-linux",
+            "pinned": false
+        },
+        "/home/mjensen/.local/bin/rtk": {
+            "path": "/home/mjensen/.local/bin/rtk",
+            "remote_name": "rtk",
+            "version": "v0.45.0",
+            "hash": "99e0cff729d52297a23eb832f809d9773ba7c32de818dfe76b2cdd900a951535",
+            "url": "https://github.com/rtk-ai/rtk/releases/tag/v0.45.0",
+            "provider": "github",
+            "package_path": "rtk",
+            "selected_asset": "rtk-x86_64-unknown-linux-musl.tar.gz",
+            "pinned": false
+        }
+    }
+}
