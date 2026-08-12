@@ -23,6 +23,17 @@
             "selected_asset": "bibel_Linux_x86_64.tar.gz",
             "pinned": false
         },
+        "/home/mjensen/.local/bin/codemap": {
+            "path": "/home/mjensen/.local/bin/codemap",
+            "remote_name": "codemap",
+            "version": "v4.4.0",
+            "hash": "2a1a7a5607b35e4143b4089d9a5e9e6f7765fc04dc12b37fd3f322fe32a9fa9c",
+            "url": "https://github.com/JordanCoin/codemap",
+            "provider": "github",
+            "package_path": "codemap",
+            "selected_asset": "codemap_4.4.0_linux_amd64.tar.gz",
+            "pinned": false
+        },
         "/home/mjensen/.local/bin/crush": {
             "path": "/home/mjensen/.local/bin/crush",
             "remote_name": "crush",

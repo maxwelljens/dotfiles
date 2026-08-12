@@ -10,6 +10,11 @@
       "type": "stdio",
       "command": "lightpanda",
       "args": ["mcp"]
+    },
+    "mcp_codemap": {
+      "type": "stdio",
+      "command": "codemap",
+      "args": ["mcp"]
     }
   },
   "hooks": {
@@ -18,6 +23,10 @@
         "name": "rtk",
         "matcher": "bash",
         "command": "rtk-rewrite.sh"
+      },
+      {
+        "name": "codemap",
+        "command": "codemap-hooks.sh"
       }
     ]
   },
