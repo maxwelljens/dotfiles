@@ -11,6 +11,7 @@ files = [
   ".config/nvim",
   ".config/alacritty",
   ".config/dotfiler",
+  ".config/superfile",
   ".config/niri",
   ".znap",
 ]

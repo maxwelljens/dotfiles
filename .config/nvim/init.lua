@@ -15,3 +15,10 @@ vim.g.clipboard = {
   },
   cache_enabled = 0,
 }
+
+-- Ustawienie języków
+vim.opt.spell = true
+vim.opt.spelllang = { "en_gb", "pl" }
+
+-- lazy.nvim
+require("config.lazy")
