@@ -66,6 +66,17 @@
             "package_path": "rtk",
             "selected_asset": "rtk-x86_64-unknown-linux-musl.tar.gz",
             "pinned": false
+        },
+        "/home/mjensen/.local/bin/surge": {
+            "path": "/home/mjensen/.local/bin/surge",
+            "remote_name": "surge",
+            "version": "v0.11.2",
+            "hash": "08e0e6b0a003b831903ed0df8416023dbd5e5e186b4bc8e6dba288674461078d",
+            "url": "https://github.com/SurgeDM/Surge",
+            "provider": "github",
+            "package_path": "surge",
+            "selected_asset": "Surge_0.11.2_linux_amd64.tar.gz",
+            "pinned": false
         }
     }
 }
