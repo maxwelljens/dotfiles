@@ -37,12 +37,12 @@
         "/home/mjensen/.local/bin/crush": {
             "path": "/home/mjensen/.local/bin/crush",
             "remote_name": "crush",
-            "version": "v0.90.0",
-            "hash": "a16f35fa1e6dac4a8f284e2c2ffc312fb8105ea4ed39418ccb1563f4a56e9369",
-            "url": "https://github.com/charmbracelet/crush/releases/tag/v0.90.0",
+            "version": "v0.91.0",
+            "hash": "c61474ede2948566abaef227f040893c301145e1431969a75a7a6201c1a4ca26",
+            "url": "https://github.com/charmbracelet/crush/releases/tag/v0.91.0",
             "provider": "github",
-            "package_path": "crush_0.90.0_Linux_x86_64/crush",
-            "selected_asset": "crush_0.90.0_Linux_x86_64.tar.gz",
+            "package_path": "crush_0.91.0_Linux_x86_64/crush",
+            "selected_asset": "crush_0.91.0_Linux_x86_64.tar.gz",
             "pinned": false
         },
         "/home/mjensen/.local/bin/lightpanda": {
@@ -54,6 +54,17 @@
             "provider": "github",
             "package_path": "",
             "selected_asset": "lightpanda-x86_64-linux",
+            "pinned": false
+        },
+        "/home/mjensen/.local/bin/llmfit": {
+            "path": "/home/mjensen/.local/bin/llmfit",
+            "remote_name": "llmfit",
+            "version": "v1.1.11",
+            "hash": "58db79db3d1201a3cddabd03fbd31977196071c419d2b494bd2990c33b0822a0",
+            "url": "https://github.com/AlexsJones/llmfit",
+            "provider": "github",
+            "package_path": "llmfit-v1.1.11-x86_64-unknown-linux-gnu/llmfit",
+            "selected_asset": "llmfit-v1.1.11-x86_64-unknown-linux-gnu.tar.gz",
             "pinned": false
         },
         "/home/mjensen/.local/bin/rtk": {
