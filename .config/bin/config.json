@@ -37,12 +37,12 @@
         "/home/mjensen/.local/bin/crush": {
             "path": "/home/mjensen/.local/bin/crush",
             "remote_name": "crush",
-            "version": "v0.91.0",
-            "hash": "c61474ede2948566abaef227f040893c301145e1431969a75a7a6201c1a4ca26",
-            "url": "https://github.com/charmbracelet/crush/releases/tag/v0.91.0",
+            "version": "v0.91.2",
+            "hash": "43ceaea2a8b661cc74ed92c9732ca20769b7c852507b4254de20edc27734adfe",
+            "url": "https://github.com/charmbracelet/crush/releases/tag/v0.91.2",
             "provider": "github",
-            "package_path": "crush_0.91.0_Linux_x86_64/crush",
-            "selected_asset": "crush_0.91.0_Linux_x86_64.tar.gz",
+            "package_path": "crush_0.91.2_Linux_x86_64/crush",
+            "selected_asset": "crush_0.91.2_Linux_x86_64.tar.gz",
             "pinned": false
         },
         "/home/mjensen/.local/bin/lightpanda": {
@@ -59,20 +59,20 @@
         "/home/mjensen/.local/bin/llmfit": {
             "path": "/home/mjensen/.local/bin/llmfit",
             "remote_name": "llmfit",
-            "version": "v1.1.11",
-            "hash": "58db79db3d1201a3cddabd03fbd31977196071c419d2b494bd2990c33b0822a0",
-            "url": "https://github.com/AlexsJones/llmfit",
+            "version": "v1.1.12",
+            "hash": "5ce5ec0c267d8a0f7358b9c524311b5b09928b91e4d870f4709bdc768dccc7d9",
+            "url": "https://github.com/AlexsJones/llmfit/releases/tag/v1.1.12",
             "provider": "github",
-            "package_path": "llmfit-v1.1.11-x86_64-unknown-linux-gnu/llmfit",
-            "selected_asset": "llmfit-v1.1.11-x86_64-unknown-linux-gnu.tar.gz",
+            "package_path": "llmfit-v1.1.12-x86_64-unknown-linux-gnu/llmfit",
+            "selected_asset": "llmfit-v1.1.12-x86_64-unknown-linux-gnu.tar.gz",
             "pinned": false
         },
         "/home/mjensen/.local/bin/rtk": {
             "path": "/home/mjensen/.local/bin/rtk",
             "remote_name": "rtk",
-            "version": "v0.45.0",
-            "hash": "99e0cff729d52297a23eb832f809d9773ba7c32de818dfe76b2cdd900a951535",
-            "url": "https://github.com/rtk-ai/rtk/releases/tag/v0.45.0",
+            "version": "v0.46.0",
+            "hash": "bbe12b786f4c17ed068340a4de1d8b8540d22671aa4aa2c966af163d889640f9",
+            "url": "https://github.com/rtk-ai/rtk/releases/tag/v0.46.0",
             "provider": "github",
             "package_path": "rtk",
             "selected_asset": "rtk-x86_64-unknown-linux-musl.tar.gz",
@@ -81,12 +81,12 @@
         "/home/mjensen/.local/bin/surge": {
             "path": "/home/mjensen/.local/bin/surge",
             "remote_name": "surge",
-            "version": "v0.12.0",
-            "hash": "866f281a725d0f2d251eec7eccd902073212bfa04cdde394d8a9caeacb34170d",
-            "url": "https://github.com/SurgeDM/Surge/releases/tag/v0.12.0",
+            "version": "v0.12.1",
+            "hash": "acaac99f7743269c9c451e72b0fcb4ad33053611e7cf0ae8a6e72c5a613eacfa",
+            "url": "https://github.com/SurgeDM/Surge/releases/tag/v0.12.1",
             "provider": "github",
             "package_path": "surge",
-            "selected_asset": "Surge_0.12.0_linux_amd64.tar.gz",
+            "selected_asset": "Surge_0.12.1_linux_amd64.tar.gz",
             "pinned": false
         }
     }
