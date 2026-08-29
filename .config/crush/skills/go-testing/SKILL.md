@@ -317,10 +317,33 @@ func TestDatabaseIntegration(t *testing.T) {
 
 Mock interfaces, not concrete types. Define interfaces where consumed, then create mock implementations.
 
+Mock only dependencies that sit outside the boundary under test. Where a real implementation is cheap (in-memory collections, a test database), use it instead of building a mock.
+
 For mock patterns, test fixtures, and time mocking, see [Mocking](./references/mocking.md).
 
 ## Enforce with Linters
 
+Test quality rules that read like prose get ignored; wire them into the linter
+config instead. The `go-init` skill ships a baseline `.golangci.yml`, but none
+of its linters check test quality specifically, so add these:
+
+```yaml
+linters:
+  enable:
+    - usetesting    # testing-package APIs superseded in Go 1.24+ (auto-fix)
+    - paralleltest  # parallel-safe tests missing t.Parallel()
+    - tparallel     # t.Parallel() used where it cannot work
+    - thelper       # helpers that do not start with t.Helper()
+```
+
+Check names against your own install before committing the config:
+`golangci-lint help linters | grep -Ei 'test|parallel|helper'`. Run
+`golangci-lint run ./...` and `go test -race ./...` on every push, and keep the
+`-race` run in CI even when local loops skip it.
+
+Do NOT enable `testpackage` unless the project commits to black-box tests
+throughout: it rejects the white-box `package mypackage` test files shown under
+Test Structure and Organization. Pick one convention, then enforce it.
 
 ## Quick Reference
 
