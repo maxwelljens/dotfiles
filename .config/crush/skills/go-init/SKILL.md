@@ -12,14 +12,11 @@ user-invocable: true
 go mod init <module>
 mkdir -p cmd/myapp internal
 touch cmd/myapp/main.go internal/.gitkeep
-# Config templates live in this skill's references/ directory, i.e.
-# ~/.config/crush/skills/go-init/references on this machine
-cp ~/.config/crush/skills/go-init/references/goreleaser.yaml .goreleaser.yaml
-cp ~/.config/crush/skills/go-init/references/golangci.yaml .golangci.yml
 ```
 
 Set the module path to the repository URL
-(`go mod init github.com/you/myapp`).
+(`go mod init github.com/you/myapp`), then copy the two config templates out of
+this skill's `references/` directory into the project root (steps 2 and 3).
 
 One directory per binary under `cmd/`: `cmd/myapp/main.go`. A bare
 `cmd/main.go` is wrong, it builds a binary called `cmd` and collides as soon as
@@ -68,9 +65,13 @@ using `deno`:
 
 ```bash
 deno init
-deno add npm:react npm:react-dom   # as needed
+deno add npm:react npm:react-dom npm:@types/react   # as needed
 deno bundle --platform=browser --minify --outdir=dist main.tsx
 ```
+
+Set `"compilerOptions": { "jsx": "react-jsx", "jsxImportSource": "react" }` in
+`deno.json` before bundling a `.tsx` entry point; the automatic runtime is the
+recommended setup, and `@types/react` is what gives JSX type checking.
 
 Embed with `//go:embed dist/*` in your Go code.
 

@@ -1,5 +1,13 @@
 # Mocking and Test Fixtures
 
+## Where mocks belong
+
+Mock at system boundaries only: external services, the clock, randomness, the
+filesystem. An interface existing is not a reason to mock it. Prefer a real
+implementation where one is cheap and fast (an in-memory store over a mocked
+repository, a test database over a mocked one), because every mock is a
+contract that can keep passing after the real thing changes.
+
 ## Mocks with testify/mock
 
 Create interfaces for your dependencies, then mock them.

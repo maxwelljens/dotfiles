@@ -17,6 +17,8 @@ user-invocable: true
 
 Mage scans Go source files with `//go:build mage` in `package main` and turns exported functions into runnable targets. No Makefile syntax, no bash limitations — pure Go with full type safety, IDE support, and the ability to import any Go library.
 
+Mage is build and install automation, not a shell alias box. A command runner such as `just` stays the right tool for the everyday typing surface (`just test`, `just lint`); use mage when the steps need real Go: dependency-ordered builds, code generation, cross-compilation, packaging and install. The two coexist in one project; see `go-project-layout`.
+
 ## Magefile Structure
 
 Two layout conventions, both valid:

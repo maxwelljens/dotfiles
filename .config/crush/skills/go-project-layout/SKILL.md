@@ -69,8 +69,8 @@ See [directory layout examples](references/directory-layouts.md) for universal, 
 
 Every Go project should include at the root:
 
-- **justfile** — command runner for the everyday developer surface (`just test`, `just lint`, `just build`).
-- **Magefile** — build and install automation in Go, for CI and release pipelines (cross-compiled artifacts, packaging, generated code). See the `go-mage` skill.
+- **justfile** — command runner for the everyday developer surface (`just test`, `just lint`, `just build`). Optional, but the alternative is a Makefile or shell snippets in the README.
+- **Magefile** — build and install automation in Go, for CI and release pipelines (cross-compiled artifacts, packaging, generated code). Only where that logic needs Go; see the `go-mage` skill.
 - **.gitignore** — git ignore patterns. See [.gitignore template](assets/.gitignore)
 - **.golangci.yml** — linter config. Used with `golangci-lint run`.
 
