@@ -26,23 +26,23 @@
         "/home/mjensen/.local/bin/codemap": {
             "path": "/home/mjensen/.local/bin/codemap",
             "remote_name": "codemap",
-            "version": "v4.4.2",
-            "hash": "37a484fd6eb313bb898dd438a8ad6333a64c37cd188eee9447bf40295931f07e",
-            "url": "https://github.com/JordanCoin/codemap/releases/tag/v4.4.2",
+            "version": "v4.5.0",
+            "hash": "504ec464ce32d10a2bb7a6ef74c42bef30c25c6382be1d0ccbd17998ef58d5df",
+            "url": "https://github.com/JordanCoin/codemap/releases/tag/v4.5.0",
             "provider": "github",
             "package_path": "codemap",
-            "selected_asset": "codemap_4.4.2_linux_amd64.tar.gz",
+            "selected_asset": "codemap_4.5.0_linux_amd64.tar.gz",
             "pinned": false
         },
         "/home/mjensen/.local/bin/crush": {
             "path": "/home/mjensen/.local/bin/crush",
             "remote_name": "crush",
-            "version": "v0.91.2",
-            "hash": "43ceaea2a8b661cc74ed92c9732ca20769b7c852507b4254de20edc27734adfe",
-            "url": "https://github.com/charmbracelet/crush/releases/tag/v0.91.2",
+            "version": "v0.92.0",
+            "hash": "23f9f82391b75ede88b5017b1fa35f11998e8d508cc0e8b1bdd99c0ffbffdfc2",
+            "url": "https://github.com/charmbracelet/crush/releases/tag/v0.92.0",
             "provider": "github",
-            "package_path": "crush_0.91.2_Linux_x86_64/crush",
-            "selected_asset": "crush_0.91.2_Linux_x86_64.tar.gz",
+            "package_path": "crush_0.92.0_Linux_x86_64/crush",
+            "selected_asset": "crush_0.92.0_Linux_x86_64.tar.gz",
             "pinned": false
         },
         "/home/mjensen/.local/bin/lightpanda": {
