@@ -88,6 +88,17 @@
             "package_path": "surge",
             "selected_asset": "Surge_0.12.1_linux_amd64.tar.gz",
             "pinned": false
+        },
+        "/home/mjensen/.local/bin/trenchbroom.appimage": {
+            "path": "/home/mjensen/.local/bin/trenchbroom.appimage",
+            "remote_name": "TrenchBroom.AppImage",
+            "version": "v2026.2",
+            "hash": "33fa3b482733578156841c0a0c34776f02817115ff949a162d00d52b9672ac0c",
+            "url": "https://github.com/TrenchBroom/TrenchBroom",
+            "provider": "github",
+            "package_path": "TrenchBroom.AppImage",
+            "selected_asset": "TrenchBroom-Linux-x86_64-v2026.2-Release.zip",
+            "pinned": false
         }
     }
 }
