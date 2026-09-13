@@ -3,13 +3,13 @@
     "bins": {
         "/home/mjensen/.local/bin/bin": {
             "path": "/home/mjensen/.local/bin/bin",
-            "remote_name": "bin_0.29.2_linux_amd64",
-            "version": "v0.29.2",
-            "hash": "1549afe5905ce4663bede857822b7a10c3e9b6cac00a6fc1501e9d5a02d45b77",
-            "url": "https://github.com/marcosnils/bin/releases/tag/v0.29.2",
+            "remote_name": "bin_0.29.3_linux_amd64",
+            "version": "v0.29.3",
+            "hash": "e55a73b48f93d3255594b963d9e4fc69700be1eeba73eefc33f3c0d0c67fcd48",
+            "url": "https://github.com/marcosnils/bin/releases/tag/v0.29.3",
             "provider": "github",
             "package_path": "",
-            "selected_asset": "bin_0.29.2_linux_amd64",
+            "selected_asset": "bin_0.29.3_linux_amd64",
             "pinned": false
         },
         "/home/mjensen/.local/bin/cmd": {
@@ -37,12 +37,12 @@
         "/home/mjensen/.local/bin/crush": {
             "path": "/home/mjensen/.local/bin/crush",
             "remote_name": "crush",
-            "version": "v0.93.1",
-            "hash": "e59e1baecfc810027d424a8ef2a23d6ed091ca93ac36f5f32e95ce6788c5fbf9",
-            "url": "https://github.com/charmbracelet/crush/releases/tag/v0.93.1",
+            "version": "v0.94.1",
+            "hash": "502b474d7a1e5d97a14610888ee90b02db24fc872eb459471522f8f91126d335",
+            "url": "https://github.com/charmbracelet/crush/releases/tag/v0.94.1",
             "provider": "github",
-            "package_path": "crush_0.93.1_Linux_x86_64/crush",
-            "selected_asset": "crush_0.93.1_Linux_x86_64.tar.gz",
+            "package_path": "crush_0.94.1_Linux_x86_64/crush",
+            "selected_asset": "crush_0.94.1_Linux_x86_64.tar.gz",
             "pinned": false
         },
         "/home/mjensen/.local/bin/lightpanda": {
@@ -70,9 +70,9 @@
         "/home/mjensen/.local/bin/rtk": {
             "path": "/home/mjensen/.local/bin/rtk",
             "remote_name": "rtk",
-            "version": "v0.48.0",
-            "hash": "64c01578fec180a1b1f093e882bc8a673f0a3bf7ecf7094950fec6d897872e01",
-            "url": "https://github.com/rtk-ai/rtk/releases/tag/v0.48.0",
+            "version": "v0.49.0",
+            "hash": "a051b22361c7cfa36022bc3f06bb41cdc88e58a07263dc340d8bd3468c41befe",
+            "url": "https://github.com/rtk-ai/rtk/releases/tag/v0.49.0",
             "provider": "github",
             "package_path": "rtk",
             "selected_asset": "rtk-x86_64-unknown-linux-musl.tar.gz",
