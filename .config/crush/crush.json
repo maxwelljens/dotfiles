@@ -15,6 +15,15 @@
       "type": "stdio",
       "command": "codemap",
       "args": ["mcp"]
+    },
+    "mcp_godot": {
+      "type": "stdio",
+      "command": "deno",
+      "args": ["x", "@coding-solo/godot-mcp"],
+      "env": {
+        "GODOT_PATH": "/usr/bin/godot",
+        "DEBUG": "true"
+      }
     }
   },
   "hooks": {
@@ -37,7 +46,9 @@
       "grep",
       "edit",
       "mcp_gopls",
-      "mcp_browser"
+      "mcp_browser",
+      "mcp_codemap",
+      "mcp_godot"
     ]
   }
 }
