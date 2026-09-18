@@ -29,6 +29,7 @@ GDScript does not use decorators, getters, or setup methods for these; it uses `
 - `@onready var label = $Label` — defers initialization until `_ready()` runs, because child nodes do not exist when the script initializes. This replaces manually assigning node references inside `_ready()`. Do not assign node paths to plain `var` declarations; they will be `null`.
 - `@tool` on the first line makes the script run inside the editor (used for editor plugins and live-updating UI scripts). See https://docs.godotengine.org/en/stable/tutorials/plugins/running_code_in_the_editor.html
 - `@icon("res://path/to/icon.png")` sets the class icon shown in the editor.
+- `@abstract` (placed before `class_name`, Godot 4.5+) marks the class as abstract: it cannot be instantiated. Inner classes declare it inline: `@abstract class MyNode extends Node:`.
 - Annotations stack on one line: `@onready @export var x = 5` is legal syntax, but combining `@onready` with `@export` triggers the `ONREADY_WITH_EXPORT` warning (error by default) because `@onready` reassigns the exported value in `_ready()`.
 
 Initialization order matters: default values, then `var` assignments top-to-bottom, then `_init()`, then exported values from the scene, then `@onready` assignments, then `_ready()`.
@@ -140,7 +141,7 @@ var items: Dictionary[String, int] = {}   # Godot 4.4+
 - `class_name Foo` registers a global class type; `extends` defaults to `RefCounted`; no multiple inheritance.
 - `_init()` is the constructor; `_ready()` runs when the node enters the scene tree; static constructors use `static func _static_init():`.
 - Format strings use the `%` operator: `"%s was reluctant to learn %s." % ["Estragon", "GDScript"]`, `%d%%` for a literal percent. Reference: https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_format_string.html
-- Prefer static typing: annotate types on parameters, returns, and variables; use `:=` for inferred types, `-> type` for return types. There is no `void` except as a return-type annotation for functions that return nothing. Reference: https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/static_typing.html
+- Prefer static typing: annotate types on parameters, returns, and variables; use `-> type` for return types. There is no `void` except as a return-type annotation for functions that return nothing. See the "Static typing" style rules below for when `:=` inference is appropriate. Reference: https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/static_typing.html
 
 ## Style guide (mandatory)
 
@@ -167,24 +168,78 @@ Follow the official style guide: https://docs.godotengine.org/en/stable/tutorial
 
 ```text
 01. @tool, @icon, @static_unload
-02. class_name
-03. extends
-04. ## doc comment
-05. signals
-06. enums
-07. constants
-08. static variables
-09. @export variables
-10. remaining regular variables
-11. @onready variables
-12. _static_init() and remaining static methods
-13. _init()
-14. _enter_tree(), _ready(), _process(), _physics_process(), other virtual callbacks
-15. remaining methods (public first, then private)
-16. inner classes
+02. @abstract (if the class is abstract; Godot 4.5+)
+03. class_name
+04. extends
+05. ## doc comment
+
+06. signals
+07. enums
+08. constants
+09. static variables
+10. @export variables
+11. remaining regular variables
+12. @onready variables
+
+13. _static_init()
+14. remaining static methods
+15. overridden built-in virtual methods:
+    1. _init()
+    2. _enter_tree()
+    3. _ready()
+    4. _process()
+    5. _physics_process()
+    6. remaining virtual methods
+16. overridden custom methods (overrides of a parent script's methods)
+17. remaining methods (public before private)
+18. inner classes
 ```
 
-Rule of thumb: properties and signals first, then methods; public before private; virtual callbacks before the class's own interface.
+This code order follows four rules of thumb:
+
+1. Properties and signals come first, followed by methods.
+2. Public comes before private.
+3. Virtual callbacks come before the class's interface.
+4. The object's construction and initialization functions, `_init` and `_ready`, come before functions that modify the object at runtime.
+
+### Static typing
+
+GDScript's static typing is optional but preferred. Declare a variable's type with `var health: int = 0` and a function's return type with `func heal(amount: int) -> void:`.
+
+Use `:=` to let the compiler infer the type. Prefer `:=` when the type is written on the same line as the assignment (it is visible at a glance); otherwise write the type explicitly.
+
+**Good**:
+
+```gdscript
+# The type can be int or float, and thus should be stated explicitly.
+var health: int = 0
+
+# The type is clearly inferred as Vector3.
+var direction := Vector3(1, 2, 3)
+```
+
+**Bad**:
+
+```gdscript
+# Typed as int, but it could be that float was intended.
+var health := 0
+
+# The type hint has redundant information.
+var direction: Vector3 = Vector3(1, 2, 3)
+
+# What type is this? It's not immediately clear to the reader.
+var value := complex_function()
+```
+
+Include the type hint when the type is ambiguous, and omit it when it is redundant.
+
+`get_node()` cannot infer a type beyond its declared return type, so state the type explicitly for node references:
+
+```gdscript
+@onready var health_bar: ProgressBar = get_node("UI/LifeBar")
+```
+
+Alternatively, cast with `as` and let that infer the type: `@onready var health_bar := get_node("UI/LifeBar") as ProgressBar`. The `as` cast is more type-safe than a hint, but less null-safe: on a type mismatch at runtime it silently sets the variable to `null` without an error or warning.
 
 ### Formatting
 
