@@ -67,6 +67,17 @@
             "selected_asset": "llmfit-v1.1.15-x86_64-unknown-linux-gnu.tar.gz",
             "pinned": false
         },
+        "/home/mjensen/.local/bin/qrrs": {
+            "path": "/home/mjensen/.local/bin/qrrs",
+            "remote_name": "qrrs",
+            "version": "v0.1.11",
+            "hash": "050bda0db090de855545a6bf956c8bbc04dc3b91dab8eac17d694357be76dfa8",
+            "url": "https://github.com/cureforpain/qrrs",
+            "provider": "github",
+            "package_path": "qrrs",
+            "selected_asset": "qrrs-x86_64-unknown-linux-gnu.tar.gz",
+            "pinned": false
+        },
         "/home/mjensen/.local/bin/rtk": {
             "path": "/home/mjensen/.local/bin/rtk",
             "remote_name": "rtk",
