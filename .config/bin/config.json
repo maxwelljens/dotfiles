@@ -3,13 +3,13 @@
     "bins": {
         "/home/mjensen/.local/bin/bin": {
             "path": "/home/mjensen/.local/bin/bin",
-            "remote_name": "bin_0.29.3_linux_amd64",
-            "version": "v0.29.3",
-            "hash": "e55a73b48f93d3255594b963d9e4fc69700be1eeba73eefc33f3c0d0c67fcd48",
-            "url": "https://github.com/marcosnils/bin/releases/tag/v0.29.3",
+            "remote_name": "bin_0.29.4_linux_amd64",
+            "version": "v0.29.4",
+            "hash": "f7a179a813675bde2d8cf0ad3b4ae1d7bb1c6732daf623fb8deeba9f5f4782a7",
+            "url": "https://github.com/marcosnils/bin/releases/tag/v0.29.4",
             "provider": "github",
             "package_path": "",
-            "selected_asset": "bin_0.29.3_linux_amd64",
+            "selected_asset": "bin_0.29.4_linux_amd64",
             "pinned": false
         },
         "/home/mjensen/.local/bin/cmd": {
@@ -37,12 +37,12 @@
         "/home/mjensen/.local/bin/crush": {
             "path": "/home/mjensen/.local/bin/crush",
             "remote_name": "crush",
-            "version": "v0.96.0",
-            "hash": "ccac371bd71a297ff585508900af8dbff1684526fc119788dcf11d03e182fc70",
-            "url": "https://github.com/charmbracelet/crush/releases/tag/v0.96.0",
+            "version": "v0.96.1",
+            "hash": "9e219b3dcbd9498958e52fef06fef03f7f491bb5ac36c27ce0d31898473557d2",
+            "url": "https://github.com/charmbracelet/crush/releases/tag/v0.96.1",
             "provider": "github",
-            "package_path": "crush_0.96.0_Linux_x86_64/crush",
-            "selected_asset": "crush_0.96.0_Linux_x86_64.tar.gz",
+            "package_path": "crush_0.96.1_Linux_x86_64/crush",
+            "selected_asset": "crush_0.96.1_Linux_x86_64.tar.gz",
             "pinned": false
         },
         "/home/mjensen/.local/bin/lightpanda": {
@@ -92,12 +92,12 @@
         "/home/mjensen/.local/bin/surge": {
             "path": "/home/mjensen/.local/bin/surge",
             "remote_name": "surge",
-            "version": "v0.12.1",
-            "hash": "acaac99f7743269c9c451e72b0fcb4ad33053611e7cf0ae8a6e72c5a613eacfa",
-            "url": "https://github.com/SurgeDM/Surge/releases/tag/v0.12.1",
+            "version": "v0.12.2",
+            "hash": "190bd5431d3bab748a4507e47a80165ae08bdd8873d01175d946773007abb876",
+            "url": "https://github.com/SurgeDM/Surge/releases/tag/v0.12.2",
             "provider": "github",
             "package_path": "surge",
-            "selected_asset": "Surge_0.12.1_linux_amd64.tar.gz",
+            "selected_asset": "Surge_0.12.2_linux_amd64.tar.gz",
             "pinned": false
         },
         "/home/mjensen/.local/bin/trenchbroom.appimage": {
