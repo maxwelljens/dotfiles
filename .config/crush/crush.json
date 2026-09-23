@@ -24,6 +24,16 @@
         "GODOT_PATH": "/usr/bin/godot",
         "DEBUG": "true"
       }
+    },
+    "mcp_blender": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/home/mjensen/Projekty/blender_mcp/mcp",
+        "run",
+        "blender-mcp"
+      ]
     }
   },
   "hooks": {
