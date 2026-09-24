@@ -12,6 +12,7 @@ export GITHUB_TOKEN="$(pass show github/token 2>/dev/null)"
 
 # LLM
 export HYPER_API_KEY="$(pass show hyper/api_key 2>/dev/null)"
+export XIAOMI_API_KEY="$(pass show xiaomi/api_key 2>/dev/null)"
 export DEEPSEEK_API_KEY="$(pass show deepseek/api_key 2>/dev/null)"
 export OPENCODE_API_KEY="$(pass show opencode/api_key 2>/dev/null)"
 
