@@ -37,12 +37,12 @@
         "/home/mjensen/.local/bin/crush": {
             "path": "/home/mjensen/.local/bin/crush",
             "remote_name": "crush",
-            "version": "v0.96.1",
-            "hash": "9e219b3dcbd9498958e52fef06fef03f7f491bb5ac36c27ce0d31898473557d2",
-            "url": "https://github.com/charmbracelet/crush/releases/tag/v0.96.1",
+            "version": "v0.97.0",
+            "hash": "92a6c25ca1864a3f03080d7d671e9a2865bc86e8a28e3231a9ea774ffc6f38f3",
+            "url": "https://github.com/charmbracelet/crush/releases/tag/v0.97.0",
             "provider": "github",
-            "package_path": "crush_0.96.1_Linux_x86_64/crush",
-            "selected_asset": "crush_0.96.1_Linux_x86_64.tar.gz",
+            "package_path": "crush_0.97.0_Linux_x86_64/crush",
+            "selected_asset": "crush_0.97.0_Linux_x86_64.tar.gz",
             "pinned": false
         },
         "/home/mjensen/.local/bin/lightpanda": {
@@ -81,9 +81,9 @@
         "/home/mjensen/.local/bin/rtk": {
             "path": "/home/mjensen/.local/bin/rtk",
             "remote_name": "rtk",
-            "version": "v0.49.0",
-            "hash": "a051b22361c7cfa36022bc3f06bb41cdc88e58a07263dc340d8bd3468c41befe",
-            "url": "https://github.com/rtk-ai/rtk/releases/tag/v0.49.0",
+            "version": "v0.50.0",
+            "hash": "23433a2a50bdeb12199cadd4b94b639238d6c38529fcba1c30c9295db5fa9517",
+            "url": "https://github.com/rtk-ai/rtk/releases/tag/v0.50.0",
             "provider": "github",
             "package_path": "rtk",
             "selected_asset": "rtk-x86_64-unknown-linux-musl.tar.gz",
