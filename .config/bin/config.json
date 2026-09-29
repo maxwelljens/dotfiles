@@ -37,12 +37,12 @@
         "/home/mjensen/.local/bin/crush": {
             "path": "/home/mjensen/.local/bin/crush",
             "remote_name": "crush",
-            "version": "v0.97.0",
-            "hash": "92a6c25ca1864a3f03080d7d671e9a2865bc86e8a28e3231a9ea774ffc6f38f3",
-            "url": "https://github.com/charmbracelet/crush/releases/tag/v0.97.0",
+            "version": "v0.97.1",
+            "hash": "deec3231ee36ec20d87044f5e9652a7d8d15488c841d1e8c7a6af5863ab1bbfd",
+            "url": "https://github.com/charmbracelet/crush/releases/tag/v0.97.1",
             "provider": "github",
-            "package_path": "crush_0.97.0_Linux_x86_64/crush",
-            "selected_asset": "crush_0.97.0_Linux_x86_64.tar.gz",
+            "package_path": "crush_0.97.1_Linux_x86_64/crush",
+            "selected_asset": "crush_0.97.1_Linux_x86_64.tar.gz",
             "pinned": false
         },
         "/home/mjensen/.local/bin/lightpanda": {
