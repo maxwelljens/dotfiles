@@ -1,0 +1,65 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "mcp_gopls": {
+      "type": "local",
+      "command": [
+        "gopls",
+        "mcp"
+      ],
+      "enabled": true
+    },
+    "mcp_browser": {
+      "type": "local",
+      "command": [
+        "lightpanda",
+        "mcp"
+      ],
+      "enabled": true
+    },
+    "mcp_codemap": {
+      "type": "local",
+      "command": [
+        "codemap",
+        "mcp"
+      ],
+      "enabled": true
+    },
+    "mcp_godot": {
+      "type": "local",
+      "command": [
+        "deno",
+        "x",
+        "@coding-solo/godot-mcp"
+      ],
+      "environment": {
+        "GODOT_PATH": "/usr/bin/godot",
+        "DEBUG": "true"
+      },
+      "enabled": true,
+      "timeout": 60000
+    },
+    "mcp_blender": {
+      "type": "local",
+      "command": [
+        "uv",
+        "--directory",
+        "/home/mjensen/Projekty/blender_mcp/mcp",
+        "run",
+        "blender-mcp"
+      ],
+      "enabled": true,
+      "timeout": 60000
+    }
+  },
+  "permission": {
+    "read": "allow",
+    "list": "allow",
+    "grep": "allow",
+    "edit": "allow",
+    "mcp_gopls_*": "allow",
+    "mcp_browser_*": "allow",
+    "mcp_codemap_*": "allow",
+    "mcp_godot_*": "allow"
+  }
+}

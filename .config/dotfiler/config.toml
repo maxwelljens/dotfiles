@@ -7,7 +7,7 @@ files = [
   ".zshrc",
   ".zshenv",
   ".config/bin",
-  ".config/crush",
+  ".config/opencode",
   ".config/nvim",
   ".config/alacritty",
   ".config/dotfiler",
