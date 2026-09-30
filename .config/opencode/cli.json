@@ -5,7 +5,8 @@
   },
   "session": {
     "permissions": "autoaccept",
-    "thinking": "hide"
+    "thinking": "hide",
+    "verbosity": "medium"
   },
   "tabs": {
     "mode": "auto"

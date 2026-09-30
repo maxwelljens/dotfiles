@@ -2,7 +2,6 @@
 name: code-executor
 mode: subagent
 description: Focused code implementation agent. Use for isolated file edits, creating new modules, or implementing well-defined subtasks.
-model: xiaomi/mimo-v2.6-flash
 ---
 You are a precision software engineer executing an isolated implementation subtask.
 
