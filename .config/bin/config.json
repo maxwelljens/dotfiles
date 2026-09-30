@@ -12,17 +12,6 @@
             "selected_asset": "bin_0.29.4_linux_amd64",
             "pinned": false
         },
-        "/home/mjensen/.local/bin/cmd": {
-            "path": "/home/mjensen/.local/bin/cmd",
-            "remote_name": "cmd",
-            "version": "v1.0.2",
-            "hash": "927895cc876cee97754efa7f6f0b6094494e3f3bc27b9e44d9a472a060500947",
-            "url": "https://codeberg.org/maxwelljensen/bibel",
-            "provider": "codeberg",
-            "package_path": "cmd",
-            "selected_asset": "bibel_Linux_x86_64.tar.gz",
-            "pinned": false
-        },
         "/home/mjensen/.local/bin/codemap": {
             "path": "/home/mjensen/.local/bin/codemap",
             "remote_name": "codemap",
@@ -32,28 +21,6 @@
             "provider": "github",
             "package_path": "codemap",
             "selected_asset": "codemap_4.5.1_linux_amd64.tar.gz",
-            "pinned": false
-        },
-        "/home/mjensen/.local/bin/crush": {
-            "path": "/home/mjensen/.local/bin/crush",
-            "remote_name": "crush",
-            "version": "v0.97.1",
-            "hash": "deec3231ee36ec20d87044f5e9652a7d8d15488c841d1e8c7a6af5863ab1bbfd",
-            "url": "https://github.com/charmbracelet/crush/releases/tag/v0.97.1",
-            "provider": "github",
-            "package_path": "crush_0.97.1_Linux_x86_64/crush",
-            "selected_asset": "crush_0.97.1_Linux_x86_64.tar.gz",
-            "pinned": false
-        },
-        "/home/mjensen/.local/bin/kilo": {
-            "path": "/home/mjensen/.local/bin/kilo",
-            "remote_name": "kilo",
-            "version": "v7.8.0",
-            "hash": "4b0da1a4e4dc29083ec819ac4f1a99f486d7057641a346c38952333d67b38f60",
-            "url": "https://github.com/Kilo-Org/kilocode/releases/tag/v7.8.0",
-            "provider": "github",
-            "package_path": "kilo",
-            "selected_asset": "kilo-linux-x64.tar.gz",
             "pinned": false
         },
         "/home/mjensen/.local/bin/lightpanda": {
