@@ -64,16 +64,16 @@
   },
   "agents": {
     "code-executor": {
-	"model": "deepseek/deepseek-v4.1-flash"
+	"model": "deepseek/deepseek-flash"
     },
     "terminal-worker": {
-	"model": "deepseek/deepseek-v4.1-flash"
+	"model": "deepseek/deepseek-flash"
     },
     "debugger": {
-	"model": "deepseek/deepseek-v4.1-flash"
+	"model": "deepseek/deepseek-flash"
     },
     "committer": {
-	"model": "deepseek/deepseek-v4.1-flash"
+	"model": "deepseek/deepseek-flash"
     }
   }
 }
