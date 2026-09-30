@@ -45,6 +45,17 @@
             "selected_asset": "crush_0.97.1_Linux_x86_64.tar.gz",
             "pinned": false
         },
+        "/home/mjensen/.local/bin/kilo": {
+            "path": "/home/mjensen/.local/bin/kilo",
+            "remote_name": "kilo",
+            "version": "v7.8.0",
+            "hash": "4b0da1a4e4dc29083ec819ac4f1a99f486d7057641a346c38952333d67b38f60",
+            "url": "https://github.com/Kilo-Org/kilocode/releases/tag/v7.8.0",
+            "provider": "github",
+            "package_path": "kilo",
+            "selected_asset": "kilo-linux-x64.tar.gz",
+            "pinned": false
+        },
         "/home/mjensen/.local/bin/lightpanda": {
             "path": "/home/mjensen/.local/bin/lightpanda",
             "remote_name": "lightpanda-x86_64-linux",
