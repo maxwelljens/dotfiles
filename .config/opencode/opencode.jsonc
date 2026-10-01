@@ -1,7 +1,7 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "mcp": {
-    "mcp_gopls": {
+    "gopls": {
       "type": "local",
       "command": [
         "gopls",
@@ -9,7 +9,7 @@
       ],
       "enabled": true
     },
-    "mcp_browser": {
+    "lightpanda": {
       "type": "local",
       "command": [
         "lightpanda",
@@ -17,7 +17,7 @@
       ],
       "enabled": true
     },
-    "mcp_codemap": {
+    "codemap": {
       "type": "local",
       "command": [
         "codemap",
@@ -25,7 +25,7 @@
       ],
       "enabled": true
     },
-    "mcp_godot": {
+    "godot": {
       "type": "local",
       "command": [
         "deno",
@@ -39,7 +39,7 @@
       "enabled": true,
       "timeout": 60000
     },
-    "mcp_blender": {
+    "blender": {
       "type": "local",
       "command": [
         "uv",
