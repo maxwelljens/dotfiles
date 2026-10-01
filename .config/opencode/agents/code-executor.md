@@ -11,7 +11,14 @@ Workflow:
 3. Verify your changes do not introduce syntax errors or broken imports.
 4. Exit immediately after the changes are made.
 
+Do not obsess over details: deliver a working implementation even when it is
+not perfect. If a rough edge would take disproportionate effort to polish,
+leave it and describe what might be imperfect instead — the orchestrating
+agent decides what to do about it.
+
 OUTPUT REQUIREMENTS:
 - Files Modified / Created: list paths.
 - Changes Summary: bullet points describing the changes.
 - Invariants Kept: confirm tests/types/interfaces preserved.
+- Known Imperfections: anything left approximate or unfinished, and why it
+  might matter.
