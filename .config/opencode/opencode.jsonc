@@ -1,5 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "model": "deepseek/deepseek-flash",
   "mcp": {
     "gopls": {
       "type": "local",
@@ -61,25 +62,5 @@
     "mcp_browser_*": "allow",
     "mcp_codemap_*": "allow",
     "mcp_godot_*": "allow"
-  },
-  "agents": {
-    "code-executor": {
-	"model": "deepseek/deepseek-flash"
-    },
-    "code-reviewer": {
-	"model": "deepseek/deepseek-flash"
-    },
-    "committer": {
-	"model": "deepseek/deepseek-flash"
-    },
-    "debugger": {
-	"model": "deepseek/deepseek-flash"
-    },
-    "terminal-worker": {
-	"model": "deepseek/deepseek-flash"
-    },
-    "test-automator": {
-	"model": "deepseek/deepseek-flash"
-    }
   }
 }
