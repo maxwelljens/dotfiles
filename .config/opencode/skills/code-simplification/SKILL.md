@@ -5,15 +5,22 @@ description: Simplifies code for clarity. Use when refactoring code for clarity 
 
 # Code Simplification
 
-> Inspired by the [Claude Code Simplifier plugin](https://github.com/anthropics/claude-plugins-official/blob/main/plugins/code-simplifier/agents/code-simplifier.md). Adapted here as a model-agnostic, process-driven skill for any AI coding agent.
+> Inspired by the [Claude Code Simplifier
+> plugin](https://github.com/anthropics/claude-plugins-official/blob/main/plugins/code-simplifier/agents/code-simplifier.md).
+> Adapted here as a model-agnostic, process-driven skill for any AI coding
+> agent.
 
 ## Overview
 
-Simplify code by reducing complexity while preserving exact behavior. The goal is not fewer lines — it's code that is easier to read, understand, modify, and debug. Every simplification must pass a simple test: "Would a new team member understand this faster than the original?"
+Simplify code by reducing complexity while preserving exact behaviour. The goal
+is not fewer lines — it's code that is easier to read, understand, modify, and
+debug. Every simplification must pass a simple test: "Would a new team member
+understand this faster than the original?"
 
 ## When to Use
 
-- After a feature is working and tests pass, but the implementation feels heavier than it needs to be
+- After a feature is working and tests pass, but the implementation feels
+  heavier than it needs to be
 - During code review when readability or complexity issues are flagged
 - When you encounter deeply nested logic, long functions, or unclear names
 - When refactoring code written under time pressure
@@ -24,14 +31,18 @@ Simplify code by reducing complexity while preserving exact behavior. The goal i
 
 - Code is already clean and readable — don't simplify for the sake of it
 - You don't understand what the code does yet — comprehend before you simplify
-- The code is performance-critical and the "simpler" version would be measurably slower
-- You're about to rewrite the module entirely — simplifying throwaway code wastes effort
+- The code is performance-critical and the "simpler" version would be
+  measurably slower
+- You're about to rewrite the module entirely — simplifying throwaway code
+  wastes effort
 
 ## The Five Principles
 
 ### 1. Preserve Behavior Exactly
 
-Don't change what the code does — only how it expresses it. All inputs, outputs, side effects, error behavior, and edge cases must remain identical. If you're not sure a simplification preserves behavior, don't make it.
+Don't change what the code does — only how it expresses it. All inputs,
+outputs, side effects, error behavior, and edge cases must remain identical. If
+you're not sure a simplification preserves behavior, don't make it.
 
 ```
 ASK BEFORE EVERY CHANGE:
@@ -43,7 +54,8 @@ ASK BEFORE EVERY CHANGE:
 
 ### 2. Follow Project Conventions
 
-Simplification means making code more consistent with the codebase, not imposing external preferences. Before simplifying:
+Simplification means making code more consistent with the codebase, not
+imposing external preferences. Before simplifying:
 
 ```
 1. Read CLAUDE.md / project conventions
@@ -60,7 +72,8 @@ Simplification that breaks project consistency is not simplification — it's ch
 
 ### 3. Prefer Clarity Over Cleverness
 
-Explicit code is better than compact code when the compact version requires a mental pause to parse.
+Explicit code is better than compact code when the compact version requires
+a mental pause to parse.
 
 ```typescript
 // UNCLEAR: Dense ternary chain
@@ -308,7 +321,8 @@ function UserBadge({ user }: Props) {
 
 ## Red Flags
 
-- Simplification that requires modifying tests to pass (you likely changed behavior)
+- Simplification that requires modifying tests to pass (you likely changed
+  behaviour)
 - "Simplified" code that is longer and harder to follow than the original
 - Renaming things to match your preferences rather than project conventions
 - Removing error handling because "it makes the code cleaner"
@@ -325,7 +339,8 @@ After completing a simplification pass:
 - [ ] Linter/formatter passes (no style regressions)
 - [ ] Each simplification is a reviewable, incremental change
 - [ ] The diff is clean — no unrelated changes mixed in
-- [ ] Simplified code follows project conventions (checked against CLAUDE.md or equivalent)
+- [ ] Simplified code follows project conventions (checked against CLAUDE.md or
+  equivalent)
 - [ ] No error handling was removed or weakened
 - [ ] No dead code was left behind (unused imports, unreachable branches)
 - [ ] A teammate or review agent would approve the change as a net improvement
