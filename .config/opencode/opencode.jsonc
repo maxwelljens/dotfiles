@@ -50,6 +50,15 @@
       ],
       "enabled": true,
       "timeout": 60000
+    },
+    "servers": {
+      "tinyfish": {
+        "type": "remote",
+        "url": "https://agent.tinyfish.ai/mcp?source=tinyfish_cli&client=opencode&connect_attempt_id=b3a49d83-172c-432e-a2c3-1c49b99fe773",
+        "headers": {
+          "X-API-Key": "sk-tinyfish-Hk4da2Ru0JRQthjvQjo8c8p_mlioAH3A"
+        }
+      }
     }
   },
   "permission": {

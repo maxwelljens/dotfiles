@@ -10,11 +10,12 @@ export EDITOR=/bin/nvim
 export BAT_THEME="gruvbox-dark"
 export GITHUB_TOKEN="$(pass show github/token 2>/dev/null)"
 
-# LLM
+# API keys
 export HYPER_API_KEY="$(pass show hyper/api_key 2>/dev/null)"
 export XIAOMI_API_KEY="$(pass show xiaomi/api_key 2>/dev/null)"
 export DEEPSEEK_API_KEY="$(pass show deepseek/api_key 2>/dev/null)"
 export OPENCODE_API_KEY="$(pass show opencode/api_key 2>/dev/null)"
+export TINYFISH_API_KEY="$(pass show tinyfish/api_key 2>/dev/null)"
 
 # GPG
 # It is important that this environment variable always reflects the output of
