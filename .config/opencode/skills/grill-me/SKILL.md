@@ -13,9 +13,8 @@ guessing at answers you haven't heard yet.
 
 Ask the whole frontier in one round: number each question and give your
 recommended answer. Then wait for the user's answers before the next round. Use
-the harness's question tools, if there are any. Otherwise, ask questions in
-a structured manner, providing numbered or ABC-labelled options, followed by
-a recommendation based on best available information.
+the harness's question tools, if there are any. Format the questions in
+a structured manner, providing numbered or ABC-labelled options.
 
 Each round the user answers reshapes the tree: settled decisions push the
 frontier outward and unblock questions that depended on them. Recompute the
