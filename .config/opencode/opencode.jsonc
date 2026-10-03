@@ -66,12 +66,18 @@
     "list": "allow",
     "grep": "allow",
     "edit": "allow",
-    "mcp_gopls_*": "allow",
-    "mcp_browser_*": "allow",
-    "mcp_codemap_*": "allow",
-    "mcp_godot_*": "allow"
+    "gopls_*": "allow",
+    "lightpanda": "allow",
+    "codemap_*": "allow",
+    "godot_*": "allow",
+    "blender_*": "allow"
   },
   "agents": {
+    "plan": {
+      "permissions": [
+        { "action": "subagent", "resource": "researcher", "effect": "allow" }
+      ]
+    },
     "code-executor": {
 	"model": "deepseek/deepseek-flash"
     },
@@ -87,10 +93,16 @@
     "debugger": {
 	"model": "deepseek/deepseek-flash"
     },
+    "documenter": {
+	"model": "deepseek/deepseek-flash"
+    },
     "terminal-worker": {
 	"model": "deepseek/deepseek-flash"
     },
     "test-automator": {
+	"model": "deepseek/deepseek-flash"
+    },
+    "researcher": {
 	"model": "deepseek/deepseek-flash"
     }
   }
