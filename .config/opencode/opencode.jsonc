@@ -105,5 +105,8 @@
     "researcher": {
 	"model": "deepseek/deepseek-flash"
     }
-  }
+  },
+  "plugins": [
+    "@mohak34/opencode-notifier@latest"
+  ]
 }
