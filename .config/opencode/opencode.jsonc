@@ -72,26 +72,6 @@
     "godot_*": "allow",
     "blender_*": "allow"
   },
-  "providers": {
-    "google": {
-      "models": {
-        "gemma-r-26b-a4b-it": {
-          "modelID": "gemma-4-26b-a4b-it",
-          "name": "Gemma 4 26B A4B IT",
-          "family": "gemma",
-          "capabilities": {
-            "tools": true,
-            "input": ["text", "image"],
-            "output": ["text"]
-          },
-          "limit": {
-            "context": 262144,
-            "output": 32768
-          }
-        }
-      }
-    }
-  },
   "agents": {
     "plan": {
       "permissions": [
@@ -99,31 +79,31 @@
       ]
     },
     "code-executor": {
-	"model": "google/gemma-r-26b-a4b-it"
+	"model": "deepseek/deepseek-flash"
     },
     "code-reviewer": {
-	"model": "google/gemma-r-26b-a4b-it"
+	"model": "deepseek/deepseek-flash"
     },
     "committer": {
-	"model": "google/gemma-r-26b-a4b-it"
+	"model": "deepseek/deepseek-flash"
     },
     "explore": {
-	"model": "google/gemma-r-26b-a4b-it"
+	"model": "deepseek/deepseek-flash"
     },
     "debugger": {
-	"model": "google/gemma-r-26b-a4b-it"
+	"model": "deepseek/deepseek-flash"
     },
     "documenter": {
-	"model": "google/gemma-r-26b-a4b-it"
+	"model": "deepseek/deepseek-flash"
     },
     "terminal-worker": {
-	"model": "google/gemma-r-26b-a4b-it"
+	"model": "deepseek/deepseek-flash"
     },
     "test-automator": {
-	"model": "google/gemma-r-26b-a4b-it"
+	"model": "deepseek/deepseek-flash"
     },
     "researcher": {
-	"model": "google/gemma-r-26b-a4b-it"
+	"model": "deepseek/deepseek-flash"
     }
   },
   "plugins": [
