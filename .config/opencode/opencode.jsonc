@@ -79,31 +79,31 @@
       ]
     },
     "code-executor": {
-	"model": "deepseek/deepseek-flash"
+	"model": "openrouter/nvidia/nemotron-3.5-lightning:free"
     },
     "code-reviewer": {
-	"model": "deepseek/deepseek-flash"
+	"model": "openrouter/nvidia/nemotron-3.5-lightning:free"
     },
     "committer": {
-	"model": "deepseek/deepseek-flash"
+	"model": "openrouter/nvidia/nemotron-3.5-lightning:free"
     },
     "explore": {
-	"model": "deepseek/deepseek-flash"
+	"model": "openrouter/nvidia/nemotron-3.5-lightning:free"
     },
     "debugger": {
-	"model": "deepseek/deepseek-flash"
+	"model": "openrouter/nvidia/nemotron-3.5-lightning:free"
     },
     "documenter": {
-	"model": "deepseek/deepseek-flash"
+	"model": "openrouter/nvidia/nemotron-3.5-lightning:free"
     },
     "terminal-worker": {
-	"model": "deepseek/deepseek-flash"
+	"model": "openrouter/nvidia/nemotron-3.5-lightning:free"
     },
     "test-automator": {
-	"model": "deepseek/deepseek-flash"
+	"model": "openrouter/nvidia/nemotron-3.5-lightning:free"
     },
     "researcher": {
-	"model": "deepseek/deepseek-flash"
+	"model": "openrouter/nvidia/nemotron-3.5-lightning:free"
     }
   },
   "plugins": [
