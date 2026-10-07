@@ -72,6 +72,26 @@
     "godot_*": "allow",
     "blender_*": "allow"
   },
+  "providers": {
+    "google": {
+      "models": {
+        "gemma-r-26b-a4b-it": {
+          "modelID": "gemma-4-26b-a4b-it",
+          "name": "Gemma 4 26B A4B IT",
+          "family": "gemma",
+          "capabilities": {
+            "tools": true,
+            "input": ["text", "image"],
+            "output": ["text"]
+          },
+          "limit": {
+            "context": 262144,
+            "output": 32768
+          }
+        }
+      }
+    }
+  },
   "agents": {
     "plan": {
       "permissions": [
@@ -79,31 +99,31 @@
       ]
     },
     "code-executor": {
-	"model": "openrouter/nvidia/nemotron-3.5-lightning:free"
+	"model": "google/gemma-r-26b-a4b-it"
     },
     "code-reviewer": {
-	"model": "openrouter/nvidia/nemotron-3.5-lightning:free"
+	"model": "google/gemma-r-26b-a4b-it"
     },
     "committer": {
-	"model": "openrouter/nvidia/nemotron-3.5-lightning:free"
+	"model": "google/gemma-r-26b-a4b-it"
     },
     "explore": {
-	"model": "openrouter/nvidia/nemotron-3.5-lightning:free"
+	"model": "google/gemma-r-26b-a4b-it"
     },
     "debugger": {
-	"model": "openrouter/nvidia/nemotron-3.5-lightning:free"
+	"model": "google/gemma-r-26b-a4b-it"
     },
     "documenter": {
-	"model": "openrouter/nvidia/nemotron-3.5-lightning:free"
+	"model": "google/gemma-r-26b-a4b-it"
     },
     "terminal-worker": {
-	"model": "openrouter/nvidia/nemotron-3.5-lightning:free"
+	"model": "google/gemma-r-26b-a4b-it"
     },
     "test-automator": {
-	"model": "openrouter/nvidia/nemotron-3.5-lightning:free"
+	"model": "google/gemma-r-26b-a4b-it"
     },
     "researcher": {
-	"model": "openrouter/nvidia/nemotron-3.5-lightning:free"
+	"model": "google/gemma-r-26b-a4b-it"
     }
   },
   "plugins": [
