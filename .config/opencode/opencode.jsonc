@@ -79,31 +79,31 @@
       ]
     },
     "code-executor": {
-	"model": "deepseek/deepseek-flash"
+	"model": "xiaomi/mimo-v2.6-flash"
     },
     "code-reviewer": {
-	"model": "deepseek/deepseek-flash"
+	"model": "xiaomi/mimo-v2.6-flash"
     },
     "committer": {
-	"model": "deepseek/deepseek-flash"
+	"model": "xiaomi/mimo-v2.6-flash"
     },
     "explore": {
-	"model": "deepseek/deepseek-flash"
+	"model": "xiaomi/mimo-v2.6-flash"
     },
     "debugger": {
-	"model": "deepseek/deepseek-flash"
+	"model": "xiaomi/mimo-v2.6-flash"
     },
     "documenter": {
-	"model": "deepseek/deepseek-flash"
+	"model": "xiaomi/mimo-v2.6-pro"
     },
     "terminal-worker": {
-	"model": "deepseek/deepseek-flash"
+	"model": "xiaomi/mimo-v2.6-flash"
     },
     "test-automator": {
-	"model": "deepseek/deepseek-flash"
+	"model": "xiaomi/mimo-v2.6-flash"
     },
     "researcher": {
-	"model": "deepseek/deepseek-flash"
+	"model": "xiaomi/mimo-v2.6-pro"
     }
   },
   "plugins": [
