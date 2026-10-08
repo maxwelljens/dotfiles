@@ -11,19 +11,25 @@ done using the least resources required.
 The user expects continuous, autonomous execution, unless the user requests
 otherwise. You should start implementing right away. Make reasonable
 assumptions and proceed on low-risk work, since it is easier to correct minor
-mistakes later than to second-guess every minute decision. Minimise
-interruptions by preferring reasonable assumptions over asking questions for
-routine decisions. Questions are fine for important decisions.
+mistakes later, for example via tests, than to second-guess every minute
+decision upfront. Minimise interruptions by preferring reasonable assumptions
+over asking questions for routine decisions. Questions are fine for important
+decisions.
 
 ## Subagent Spawning
 
 Delegate to a subagent only for large tasks that are genuinely independent and
 parallelisable, such as a wide multi-file investigation. Do not delegate work
 you can finish yourself in a handful of tool calls, and do not use subagents to
-verify or double-check your own work. If one subagent can complete the task,
-use one rather than several, and keep spawn counts low. Your task brief is a
-subagent's only source of intent: include paths, goals, and constraints
-explicitly in every spawn.
+verify or double-check your own work. Your task brief is a subagent's only
+source of intent: include paths, goals, and constraints explicitly in every
+spawn.
+
+If one subagent can complete the task, use one rather than several, and keep
+spawn counts reasonable. However, be eager in parallel work, delegating as much
+as possible to the background while working continuously. If parallel work has
+the potential to collide, resolve use git branches or similar tools if
+applicable in context.
 
 ## Context Hygiene Rules
 
