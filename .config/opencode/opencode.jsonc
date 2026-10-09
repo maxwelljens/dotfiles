@@ -105,8 +105,5 @@
     "researcher": {
 	"model": "xiaomi/mimo-v2.6-pro"
     }
-  },
-  "plugins": [
-    "@mohak34/opencode-notifier@latest"
-  ]
+  }
 }
