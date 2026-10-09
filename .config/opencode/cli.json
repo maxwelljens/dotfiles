@@ -6,9 +6,15 @@
   "session": {
     "permissions": "autoaccept",
     "thinking": "hide",
-    "verbosity": "medium"
+    "verbosity": "medium",
+    "scrollbar": true
   },
   "tabs": {
     "mode": "auto"
+  },
+  "animations": true,
+  "attention": {
+    "notifications": true,
+    "sound": true
   }
 }
