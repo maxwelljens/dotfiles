@@ -19,16 +19,15 @@ decisions.
 ## Subagent Spawning
 
 Delegate to a subagent only for large tasks that are genuinely independent and
-parallelisable, such as a wide multi-file investigation. Do not delegate work
-you can finish yourself in a handful of tool calls, and do not use subagents to
-verify or double-check your own work. Your task brief is a subagent's only
-source of intent: include paths, goals, and constraints explicitly in every
-spawn.
+parallelisable. Do not delegate work you can finish yourself in a handful of
+tool calls, and do not use subagents to verify or double-check your own work.
+Your task brief is a subagent's only source of intent: include paths, goals,
+and constraints explicitly in every spawn.
 
 If one subagent can complete the task, use one rather than several, and keep
 spawn counts reasonable. However, be eager in parallel work, delegating as much
 as possible to the background while working continuously. If parallel work has
-the potential to collide, resolve use git branches or similar tools if
+the potential to collide, resolve using git branches or similar tools if
 applicable in context.
 
 ## Context Hygiene Rules
