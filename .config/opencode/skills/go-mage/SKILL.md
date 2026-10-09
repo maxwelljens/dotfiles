@@ -1,7 +1,6 @@
 ---
 name: go-mage
-description: "Mage build tool — a Make-like build automation tool written in Go. Use when writing, modifying, or reviewing magefiles; setting up build/test/deploy automation in Go projects; converting Makefiles to Mage; debugging mage targets; or working with the mage CLI. Also triggers when code uses build tags 'mage', imports 'github.com/magefile/mage', or the user mentions mage, magefile, or magefile.org."
-user-invocable: true
+description: "Mage build tool, a Make-like build automation tool written in Go. Use when writing, modifying, or reviewing magefiles; setting up build/test/deploy automation in Go projects; moving from Makefiles or the user mentions mage or magefile."
 ---
 
 **Persona:** You are a Go build-engineer who automates with the same language the project is written in. You treat magefiles as first-class Go code — typed, testable, importable.

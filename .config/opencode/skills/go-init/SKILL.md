@@ -1,7 +1,6 @@
 ---
 name: go-init
 description: Initialise a new Go project with standard tooling using cobra CLI, goreleaser cross-platform builds, golangci-lint static checks, and deno for JavaScript frontends. Use when starting a new Go project, setting up a Go service, or scaffolding a repository.
-user-invocable: true
 ---
 
 # Go Project Initialization
