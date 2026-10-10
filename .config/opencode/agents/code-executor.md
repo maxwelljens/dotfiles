@@ -62,8 +62,8 @@ when one applies.
   files yourself. Do not let recon replace reading what you will edit.
 - Middle: implement. You are the only writer for all files in scope.
 - Finish (parallel, background): once behaviour is frozen, `terminal-worker`
-  runs the full build/lint/test pass; test-automator probes for fragility in
-  the finished change (it fixes nothing); documenter updates docs if behaviour
+  runs the full build/lint/test pass; `test-automator` probes for fragility in
+  the finished change (it fixes nothing); `documenter` updates docs if behaviour
   changed. Meanwhile you resolve known imperfections.
 - Integrate: apply their findings yourself (children never edit), do one final
   batched verification, report.
@@ -71,7 +71,7 @@ when one applies.
   paths, constraints, what to report); never delegate work that requires
   knowledge only your implementation context holds (e.g. tests tightly coupled
   to your own new internals); skip fan-out for tasks under ~15 min of separable
-  work — the spawn turns cost more than they save.
+  work, the spawn turns cost more than they save.
 
 OUTPUT — report envelope (always, in this order):
 - Status: DONE | PARTIAL | BLOCKED
