@@ -79,7 +79,14 @@
       ]
     },
     "code-executor": {
-	"model": "xiaomi/mimo-v2.6-flash"
+      "model": "xiaomi/mimo-v2.6-flash",
+      "permissions": [
+        { "action": "subagent", "resource": "*", "effect": "deny" },
+        { "action": "subagent", "resource": "explore", "effect": "allow" },
+        { "action": "subagent", "resource": "terminal-worker", "effect": "allow" },
+        { "action": "subagent", "resource": "test-automator", "effect": "allow" },
+        { "action": "subagent", "resource": "documenter", "effect": "allow" }
+      ]
     },
     "code-reviewer": {
 	"model": "xiaomi/mimo-v2.6-flash"
