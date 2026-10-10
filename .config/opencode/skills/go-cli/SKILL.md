@@ -1,24 +1,20 @@
 ---
 name: go-cli
 description: "go CLI application development. Use when building, modifying, or reviewing a Go CLI tool — especially for command structure, flag handling, configuration layering, version embedding, exit codes, I/O patterns, signal handling, shell completion, argument validation, and CLI unit testing. Also triggers when code uses cobra, viper, or urfave/cli."
-user-invocable: true
 ---
-
-**Persona:** You are a Go CLI engineer. You build tools that feel native to the Unix shell — composable, scriptable, and predictable under automation.
-
-**Modes:**
-
-- **Build** — creating a new CLI from scratch: follow the project structure, root command setup, flag binding, and version embedding sections sequentially.
-- **Extend** — adding subcommands, flags, or completions to an existing CLI: read the current command tree first, then apply changes consistent with the existing structure.
-- **Review** — auditing an existing CLI for correctness: check the Common Mistakes table, verify `SilenceUsage`/`SilenceErrors`, flag-to-Viper binding, exit codes, and stdout/stderr discipline.
 
 # Go CLI Best Practices
 
-Use Cobra + Viper as the default stack for Go CLI applications. Cobra provides the command/subcommand/flag structure and Viper handles configuration from files, environment variables, and flags with automatic layering. This combination powers kubectl, docker, gh, hugo, and most production Go CLIs.
+Use Cobra + Viper as the default stack for Go CLI applications. Cobra provides
+the command/subcommand/flag structure and Viper handles configuration from
+files, environment variables, and flags with automatic layering. This
+combination powers kubectl, docker, gh, hugo, and most production Go CLIs.
 
-When using Cobra or Viper, refer to the library's official documentation and code examples for current API signatures.
+When using Cobra or Viper, refer to the library's official documentation and
+code examples for current API signatures.
 
-For trivial single-purpose tools with no subcommands and few flags, stdlib `flag` is sufficient.
+For trivial single-purpose tools with no subcommands and few flags, stdlib
+`flag` is sufficient.
 
 ## Quick Reference
 
@@ -35,7 +31,8 @@ For trivial single-purpose tools with no subcommands and few flags, stdlib `flag
 
 ## Project Structure
 
-Organize CLI commands in `cmd/myapp/` with one file per command. Keep `main.go` minimal — it only calls `Execute()`.
+Organize CLI commands in `cmd/myapp/` with one file per command. Keep `main.go`
+minimal — it only calls `Execute()`.
 
 ```
 myapp/
@@ -54,7 +51,9 @@ myapp/
 
 ## Root Command Setup
 
-The root command initializes Viper configuration and sets up global behavior via `PersistentPreRunE`. See [assets/examples/root.go](assets/examples/root.go).
+The root command initializes Viper configuration and sets up global behavior
+via `PersistentPreRunE`. See
+[assets/examples/root.go](assets/examples/root.go).
 
 Key points:
 
@@ -65,7 +64,9 @@ Key points:
 
 ## Subcommands
 
-Add subcommands by creating separate files in `cmd/myapp/` and registering them in `init()`. See [assets/examples/serve.go](assets/examples/serve.go) for a complete subcommand example including command groups.
+Add subcommands by creating separate files in `cmd/myapp/` and registering them
+in `init()`. See [assets/examples/serve.go](assets/examples/serve.go) for
+a complete subcommand example including command groups.
 
 ## Flags
 
@@ -86,11 +87,14 @@ Provide completion suggestions for flag values.
 
 ### Always Bind Flags to Viper
 
-This ensures `viper.GetInt("port")` returns the flag value, env var `MYAPP_PORT`, or config file value — whichever has highest precedence.
+This ensures `viper.GetInt("port")` returns the flag value, env var
+`MYAPP_PORT`, or config file value — whichever has highest precedence.
 
 ## Argument Validation
 
-Cobra provides built-in validators for positional arguments. See [assets/examples/args.go](assets/examples/args.go) for both built-in and custom validation examples.
+Cobra provides built-in validators for positional arguments. See
+[assets/examples/args.go](assets/examples/args.go) for both built-in and custom
+validation examples.
 
 | Validator                   | Description                          |
 | --------------------------- | ------------------------------------ |
@@ -110,7 +114,8 @@ Viper resolves configuration values in this order (highest to lowest precedence)
 3. **Config file** (persistent settings)
 4. **Defaults** (set in code)
 
-See [assets/examples/config.go](assets/examples/config.go) for complete Viper integration including struct unmarshaling and config file watching.
+See [assets/examples/config.go](assets/examples/config.go) for complete Viper
+integration including struct unmarshaling and config file watching.
 
 ### Example Config File (.myapp.yaml)
 
@@ -131,7 +136,9 @@ With the setup above, these are all equivalent:
 
 ## Version and Build Info
 
-Version SHOULD be embedded at compile time using `ldflags`. See [assets/examples/version.go](assets/examples/version.go) for the version command and build instructions.
+Version SHOULD be embedded at compile time using `ldflags`. See
+[assets/examples/version.go](assets/examples/version.go) for the version
+command and build instructions.
 
 ## Exit Codes
 
@@ -160,17 +167,23 @@ See [assets/examples/output.go](assets/examples/output.go) for all I/O patterns:
 
 ## Signal Handling
 
-Signal handling MUST use `signal.NotifyContext` to propagate cancellation through context. See [assets/examples/signal.go](assets/examples/signal.go) for graceful HTTP server shutdown.
+Signal handling MUST use `signal.NotifyContext` to propagate cancellation
+through context. See [assets/examples/signal.go](assets/examples/signal.go) for
+graceful HTTP server shutdown.
 
 ## Shell Completions
 
-Cobra generates completions for bash, zsh, fish, and PowerShell automatically. See [assets/examples/completion.go](assets/examples/completion.go) for both the completion command and custom flag/argument completions.
+Cobra generates completions for bash, zsh, fish, and PowerShell automatically.
+See [assets/examples/completion.go](assets/examples/completion.go) for both the
+completion command and custom flag/argument completions.
 
 ## Testing CLI Commands
 
-Test commands by executing them programmatically and capturing output. See [assets/examples/cli_test.go](assets/examples/cli_test.go).
+Test commands by executing them programmatically and capturing output. See
+[assets/examples/cli_test.go](assets/examples/cli_test.go).
 
-Use `cmd.OutOrStdout()` and `cmd.ErrOrStderr()` in commands (instead of `os.Stdout` / `os.Stderr`) so output can be captured in tests.
+Use `cmd.OutOrStdout()` and `cmd.ErrOrStderr()` in commands (instead of
+`os.Stdout` / `os.Stderr`) so output can be captured in tests.
 
 ## Common Mistakes
 
@@ -186,7 +199,3 @@ Use `cmd.OutOrStdout()` and `cmd.ErrOrStderr()` in commands (instead of `os.Stdo
 | Not using `PersistentPreRunE` | Config initialization must happen before any subcommand. Use root's `PersistentPreRunE` |
 | Hardcoded version string | Version gets out of sync with tags. Inject via `ldflags` at build time from git tags |
 | Not supporting `--output` format | Scripts can't parse human-readable output. Add JSON/table/plain for machine consumption |
-
-## Related Skills
-
-See `go-project-layout` skill.

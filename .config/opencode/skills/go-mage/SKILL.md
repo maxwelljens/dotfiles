@@ -3,20 +3,18 @@ name: go-mage
 description: "Mage build tool, a Make-like build automation tool written in Go. Use when writing, modifying, or reviewing magefiles; setting up build/test/deploy automation in Go projects; moving from Makefiles or the user mentions mage or magefile."
 ---
 
-**Persona:** You are a Go build-engineer who automates with the same language the project is written in. You treat magefiles as first-class Go code — typed, testable, importable.
-
-**Modes:**
-
-- **Build** — creating magefiles from scratch: follow the file structure, build tag, package declaration, and target patterns sequentially.
-- **Extend** — adding targets or namespaces to existing magefiles: read the current magefiles first, then apply changes consistent with the existing structure and conventions.
-- **Debug** — a target is failing or behaving unexpectedly: reproduce the failure, instrument with `log` or `-v`, trace dependencies, and isolate the root cause.
-- **Review** — auditing existing magefiles: check the Common Mistakes table, verify `mg.Deps` parallelism safety, confirm build tags, and validate error propagation.
-
 # Mage — Build Automation in Go
 
-Mage scans Go source files with `//go:build mage` in `package main` and turns exported functions into runnable targets. No Makefile syntax, no bash limitations — pure Go with full type safety, IDE support, and the ability to import any Go library.
+Mage scans Go source files with `//go:build mage` in `package main` and turns
+exported functions into runnable targets. No Makefile syntax, no bash
+limitations — pure Go with full type safety, IDE support, and the ability to
+import any Go library.
 
-Mage is build and install automation, not a shell alias box. A command runner such as `just` stays the right tool for the everyday typing surface (`just test`, `just lint`); use mage when the steps need real Go: dependency-ordered builds, code generation, cross-compilation, packaging and install. The two coexist in one project; see `go-project-layout`.
+Mage is build and install automation, not a shell alias box. A command runner
+such as `just` stays the right tool for the everyday typing surface (`just
+test`, `just lint`); use mage when the steps need real Go: dependency-ordered
+builds, code generation, cross-compilation, packaging and install. The two
+coexist in one project.
 
 ## Magefile Structure
 
@@ -41,7 +39,9 @@ Two layout conventions, both valid:
 └── go.sum
 ```
 
-When magefiles live in `magefiles/` (and no `magefile.go` exists in root), mage auto-discovers that directory as the source while keeping the project root as the working directory — equivalent to `mage -d magefiles -w .`.
+When magefiles live in `magefiles/` (and no `magefile.go` exists in root), mage
+auto-discovers that directory as the source while keeping the project root as
+the working directory — equivalent to `mage -d magefiles -w .`.
 
 ## The Minimal Magefile
 
@@ -78,19 +78,26 @@ func CI() error {
 
 ### Build Tag
 
-Every magefile MUST start with `//go:build mage`. This isolates mage code from the main build — the Go toolchain ignores it during normal compilation, and Mage only compiles files with this tag.
+Every magefile MUST start with `//go:build mage`. This isolates mage code from
+the main build — the Go toolchain ignores it during normal compilation, and
+Mage only compiles files with this tag.
 
 ### Package
 
-Magefiles MUST be `package main`. Mage compiles them into a temporary binary and executes the exported function matching the requested target name.
+Magefiles MUST be `package main`. Mage compiles them into a temporary binary
+and executes the exported function matching the requested target name.
 
 ### go.mod
 
-Magefiles need `github.com/magefile/mage` as a dependency. With the subdirectory layout, the magefiles directory should have its own `go.mod` — this is recommended because it keeps mage dependencies out of the main module graph.
+Magefiles need `github.com/magefile/mage` as a dependency. With the
+subdirectory layout, the magefiles directory should have its own `go.mod`
+— this is recommended because it keeps mage dependencies out of the main module
+graph.
 
 ## Targets
 
-Targets are exported functions. mage matches function names case-insensitively on the command line.
+Targets are exported functions. mage matches function names case-insensitively
+on the command line.
 
 ### Basic Target
 
@@ -139,7 +146,8 @@ func Release(version string, dryRun *bool, force *bool) error {
 
 Run it: `mage release v1.2.3 -dryrun -force`
 
-Flag types supported: `*string`, `*bool`, `*int`, `*int64`, `*uint`, `*uint64`, `*float64`, `*time.Duration`.
+Flag types supported: `*string`, `*bool`, `*int`, `*int64`, `*uint`, `*uint64`,
+`*float64`, `*time.Duration`.
 
 ### Help Text from Comments
 
@@ -181,13 +189,17 @@ Flags:
 
 ### Error Returns
 
-Targets that return `error` signal failure; mage exits with status 1. A target can also return nothing — success is assumed if the function completes without panicking.
+Targets that return `error` signal failure; mage exits with status 1. A target
+can also return nothing — success is assumed if the function completes without
+panicking.
 
 ## Default Target
 
-If no target is specified on the command line, mage runs the **zero-argument** target with the lowest line number — the first zero-argument function defined.
+If no target is specified on the command line, mage runs the **zero-argument**
+target with the lowest line number — the first zero-argument function defined.
 
-To make a specific target the explicit default, name it as the first target in the file, or lean on the natural file ordering.
+To make a specific target the explicit default, name it as the first target in
+the file, or lean on the natural file ordering.
 
 ## Dependencies
 
@@ -227,17 +239,22 @@ func CI() error {
 }
 ```
 
-The `mg.F` helper passes arguments to target functions. `mg.SerialDeps` is an alias for calling functions sequentially.
+The `mg.F` helper passes arguments to target functions. `mg.SerialDeps` is an
+alias for calling functions sequentially.
 
 ### Dependency Rules
 
-- `mg.Deps` will not re-run a target that was already run in the current invocation — idempotent by design
-- If any dependency returns an error, the parent target returns that error without running its body
-- Dependencies run in goroutines — ensure concurrent safety (no shared mutable state without synchronization)
+- `mg.Deps` will not re-run a target that was already run in the current
+  invocation — idempotent by design
+- If any dependency returns an error, the parent target returns that error
+  without running its body
+- Dependencies run in goroutines — ensure concurrent safety (no shared mutable
+  state without synchronization)
 
 ## Namespaces
 
-Group related targets under a struct type. Embed `mg.Namespace` to opt into `mg.Deps` tracking:
+Group related targets under a struct type. Embed `mg.Namespace` to opt into
+`mg.Deps` tracking:
 
 ```go
 type Build mg.Namespace
@@ -414,7 +431,8 @@ func Build() error {
 
 ## Testing Magefiles
 
-Test magefile logic by importing `sh` or `mg` in test files and calling targets directly — they are plain Go functions:
+Test magefile logic by importing `sh` or `mg` in test files and calling targets
+directly — they are plain Go functions:
 
 ```go
 //go:build mage
@@ -495,7 +513,3 @@ mage -compile ./mage-bin      # compile magefiles into standalone binary
 | Embedding `mg.Namespace` but never using `mg.Deps` | The embedding is optional — only embed when you need deduplication via `mg.Deps` |
 | Using `mage` to compile magefiles inside a `Dockerfile` | Use `mage -compile` to produce a standalone binary, then run that binary instead |
 | Passing `*string` flag but dereferencing without nil check | Flags default to nil — guard with `if version == nil { ... }` |
-
-## Related Skills
-
-See `go-cli`, `go-testing`, and `go-project-layout` skills.

@@ -1,7 +1,6 @@
 ---
 name: go-project-layout
 description: "Provides a guide for setting up go project layouts and workspaces. Use this whenever starting a new Go project, organising an existing codebase, setting up a monorepo with multiple packages, creating CLI tools with multiple main packages, or deciding on directory structure. Apply this for any Go project initialisation or restructuring work."
-user-invocable: true
 ---
 
 **Persona:** You are a Go project architect. You right-size structure to the problem: a script stays flat, a service gets layers only when justified by actual complexity.
@@ -11,8 +10,6 @@ user-invocable: true
 ## Architecture Decision: Ask First
 
 When starting a new project, **ask the developer** what software architecture they prefer (clean architecture, hexagonal, DDD, flat structure, etc.). NEVER over-structure small projects. A 100-line CLI tool does not need layers of abstractions or dependency injection.
-
-→ See `go-design-patterns` skill for detailed architecture guides with file trees and code examples.
 
 ## Dependency Injection: Ask Next
 
@@ -104,4 +101,4 @@ When starting a new Go project:
 
 ## Related Skills
 
-→ See `go-cli` skill for CLI tool structure and Cobra/Viper patterns. → See `go-design-patterns` skill for architectural patterns.
+→ See `go-cli` skill for CLI tool structure and Cobra/Viper patterns.
