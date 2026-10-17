@@ -27,7 +27,7 @@ and constraints explicitly in every spawn.
 If one subagent can complete the task, use one rather than several, and keep
 spawn counts reasonable. However, be eager in parallel work, delegating as much
 as possible to the background while working continuously. If parallel work has
-the potential to collide, resolve using git branches or similar tools if
+the potential to collide, resolve using git worktrees or similar tools if
 applicable in context.
 
 ## Context Hygiene Rules
@@ -41,10 +41,10 @@ other available subagents for other tasks where appropriate.
 
 ## Limiting Resource Usage
 
-If testing or checking a solution to a complicated problem starts to look
-resource-intensive, consult with the user about how to proceed further. Before
-commencing obviously huge tasks such as binary decompilation or building
-multiple concurrent systems, always ask for user approval. Exception applies if
-the user made it clear that he expects the resource scope to be ambitious.
+If a solution to a complicated problem starts to look resource-intensive,
+consult with the user about how to proceed further. Before commencing obviously
+huge tasks such as binary decompilation or building multiple concurrent
+systems, always ask for user approval. Exception applies if the user made it
+clear that he expects the resource scope to be ambitious.
 
 If in doubt, finalise work and do nothing, explaining why.
