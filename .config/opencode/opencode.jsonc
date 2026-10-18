@@ -82,7 +82,7 @@
       ]
     },
     "code-executor": {
-      "model": "deepseek-v4.1-flash",
+      "model": "opencode-go/deepseek-v4.1-flash",
       "permissions": [
         { "action": "subagent", "resource": "*", "effect": "deny" },
         { "action": "subagent", "resource": "explore", "effect": "allow" },
@@ -92,28 +92,28 @@
       ]
     },
     "code-reviewer": {
-	"model": "deepseek-v4.1-flash"
+	"model": "opencode-go/deepseek-v4.1-flash"
     },
     "committer": {
-	"model": "deepseek-v4.1-flash"
+	"model": "opencode-go/deepseek-v4.1-flash"
     },
     "explore": {
-	"model": "deepseek-v4.1-flash"
+	"model": "opencode-go/deepseek-v4.1-flash"
     },
     "debugger": {
-	"model": "deepseek-v4.1-flash"
+	"model": "opencode-go/deepseek-v4.1-flash"
     },
     "documenter": {
-	"model": "xiaomi/mimo-v2.6-pro"
+	"model": "xiaomi/mimo-v2.6-flash"
     },
     "terminal-worker": {
-	"model": "deepseek-v4.1-flash"
+	"model": "opencode-go/deepseek-v4.1-flash"
     },
     "test-automator": {
-	"model": "deepseek-v4.1-flash"
+	"model": "opencode-go/deepseek-v4.1-flash"
     },
     "researcher": {
-	"model": "xiaomi/mimo-v2.6-pro"
+	"model": "xiaomi/mimo-v2.6-flash"
     }
   }
 }
