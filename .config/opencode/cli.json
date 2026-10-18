@@ -5,7 +5,7 @@
   },
   "session": {
     "permissions": "autoaccept",
-    "thinking": "hide",
+    "thinking": "show",
     "verbosity": "medium",
     "scrollbar": true
   },
