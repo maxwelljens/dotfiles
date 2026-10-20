@@ -36,12 +36,17 @@
 
   // Hysteresis bands on the 0-4 ladder (trivial..hard). Up to medium at
   // >= 2.0 (moderate); up to strong at >= 3.0 (complex — skips medium);
-  // down one rung only after 2 consecutive <= 1.0; no downgrade in the
-  // first 2 ratings. Absorbs the measured ~±0.1 rater noise.
+  // down one rung only after 2 consecutive <= 1.5; no downgrade in the
+  // first 2 ratings.
+  //
+  // downThreshold calibrated from live session data (2026-10-20): simple
+  // questions in a long session score 1.29-1.37, borderline work 1.80-1.97,
+  // complex 2.67-2.93. The old 1.0 (calibrated on short toy prompts) never
+  // fired in practice and pinned sessions to the strong tier.
   "hysteresis": {
     "upThreshold": 2.0,
     "strongThreshold": 3.0,
-    "downThreshold": 1.0,
+    "downThreshold": 1.5,
     "downStreak": 2,
     "bootstrapRatings": 2
   },
