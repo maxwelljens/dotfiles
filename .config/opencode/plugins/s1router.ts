@@ -1,8 +1,12 @@
 // s1router — System-One model routing for OpenCode.
-// GENERATED FILE: bundled from /media/Development/kevfefe/opencode-plugin-s1router
-// (deno bundle src/index.ts). Edit the source, then re-run:
-//   deno task install-global
+// GENERATED FILE: bundled from opencode-plugin-s1router (scripts/install.sh).
+// Edit the source in that directory, then re-run: sh scripts/install.sh
 // Config: ~/.config/opencode/s1router.jsonc
+// src/index.ts
+import { appendFileSync } from "node:fs";
+import { homedir as homedir2 } from "node:os";
+import { join as join2 } from "node:path";
+
 // src/config.ts
 import { readFile } from "node:fs/promises";
 import { homedir } from "node:os";
@@ -253,6 +257,7 @@ function levelLabel(score) {
 // src/policy.ts
 var DEFAULT_HYSTERESIS = {
   upThreshold: 2,
+  strongThreshold: 3,
   downThreshold: 1,
   downStreak: 2,
   bootstrapRatings: 2
@@ -264,32 +269,53 @@ var initialState = () => ({
   ratings: 0,
   lastScore: null
 });
-function route(state, score, currentTier, cfg = DEFAULT_HYSTERESIS) {
+function upTarget(score, current, cfg, hasMedium) {
+  if (current === "strong") return null;
+  if (score >= cfg.strongThreshold) return "strong";
+  if (current === "medium") return null;
+  if (score >= cfg.upThreshold) return hasMedium ? "medium" : "strong";
+  return null;
+}
+function downTarget(current, hasMedium) {
+  return current === "strong" && hasMedium ? "medium" : "cheap";
+}
+function route(state, score, currentTier, cfg = DEFAULT_HYSTERESIS, opts = {}) {
+  const hasMedium = opts.hasMedium === true;
+  const ratings = state.ratings + 1;
+  const upStreak = score >= cfg.upThreshold ? state.upStreak + 1 : 0;
+  const downStreak = score <= cfg.downThreshold ? state.downStreak + 1 : 0;
   const next = {
-    ...state,
-    ratings: state.ratings + 1,
-    lastScore: score,
-    upStreak: score >= cfg.upThreshold ? state.upStreak + 1 : 0,
-    downStreak: score <= cfg.downThreshold ? state.downStreak + 1 : 0
+    tier: currentTier,
+    upStreak,
+    downStreak,
+    ratings,
+    lastScore: score
   };
-  if (score >= cfg.upThreshold && currentTier === "cheap") {
-    next.tier = "strong";
+  const up = upTarget(score, currentTier, cfg, hasMedium);
+  if (up) {
+    next.tier = up;
+    next.upStreak = 0;
+    next.downStreak = 0;
     return {
       decision: {
         action: "switch",
-        tier: "strong",
-        reason: `score ${score.toFixed(2)} >= ${cfg.upThreshold} \u2192 escalate`
+        tier: up,
+        reason: `score ${score.toFixed(2)} >= ${up === "strong" ? cfg.strongThreshold : cfg.upThreshold} \u2192 escalate to ${up}`
       },
       state: next
     };
   }
-  if (currentTier === "strong" && next.downStreak >= cfg.downStreak && next.ratings > cfg.bootstrapRatings) {
-    next.tier = "cheap";
+  if (currentTier !== "cheap" && next.downStreak >= cfg.downStreak && ratings > cfg.bootstrapRatings) {
+    const tier = downTarget(currentTier, hasMedium);
+    const streak = next.downStreak;
+    next.tier = tier;
+    next.upStreak = 0;
+    next.downStreak = 0;
     return {
       decision: {
         action: "switch",
-        tier: "cheap",
-        reason: `${next.downStreak} consecutive scores <= ${cfg.downThreshold} \u2192 de-escalate`
+        tier,
+        reason: `${streak} consecutive scores <= ${cfg.downThreshold} \u2192 de-escalate to ${tier}`
       },
       state: next
     };
@@ -299,7 +325,7 @@ function route(state, score, currentTier, cfg = DEFAULT_HYSTERESIS) {
     decision: {
       action: "keep",
       tier: currentTier,
-      reason: score >= cfg.upThreshold ? `score ${score.toFixed(2)} already on strong` : next.downStreak > 0 ? `simple vote ${next.downStreak}/${cfg.downStreak}` : `score ${score.toFixed(2)} within band`
+      reason: currentTier === "strong" && score >= cfg.strongThreshold ? `score ${score.toFixed(2)} already on strong` : next.downStreak > 0 ? `simple vote ${next.downStreak}/${cfg.downStreak}` : `score ${score.toFixed(2)} within band`
     },
     state: next
   };
@@ -325,6 +351,7 @@ var S1Router = class {
     this.client = deps?.client ?? new ScoreClient(opts.decision);
     this.ladder = {
       cheap: opts.ladder?.cheap,
+      medium: opts.ladder?.medium,
       strong: opts.ladder?.strong ?? {
         providerID: "opencode-go",
         id: "deepseek-v4-pro"
@@ -356,10 +383,23 @@ var S1Router = class {
       skips: this.skips
     };
   }
-  /** Which tier the ladder maps to; null when the ladder cannot express it
-   * (cheap unset AND running on the strong model with nothing to go to). */
-  targetFor(tier, current) {
+  /** Active hysteresis thresholds (for stats / introspection). */
+  hysteresisConfig() {
+    return {
+      ...this.hysteresis
+    };
+  }
+  /** Active ladder (for stats / introspection). */
+  ladderConfig() {
+    return {
+      ...this.ladder
+    };
+  }
+  /** Which model the ladder maps a tier to; null when that rung is not
+   * configured (unset cheap = "session default", unset medium = two-tier). */
+  targetFor(tier) {
     if (tier === "strong") return this.ladder.strong;
+    if (tier === "medium") return this.ladder.medium ?? null;
     return this.ladder.cheap ?? null;
   }
   /** One agent-loop step. Never throws: every failure degrades to "leave
@@ -400,8 +440,10 @@ var S1Router = class {
         ms: now()
       };
     }
-    const currentTier = this.same(input.currentModel, this.ladder.strong) ? "strong" : "cheap";
-    const { decision, state: next } = route(this.state, score, currentTier, this.hysteresis);
+    const currentTier = this.same(input.currentModel, this.ladder.strong) ? "strong" : this.ladder.medium && this.same(input.currentModel, this.ladder.medium) ? "medium" : "cheap";
+    const { decision, state: next } = route(this.state, score, currentTier, this.hysteresis, {
+      hasMedium: this.ladder.medium !== void 0
+    });
     this.state = next;
     if (decision.action === "keep") {
       return {
@@ -415,7 +457,7 @@ var S1Router = class {
         ms: now()
       };
     }
-    const target = this.targetFor(decision.tier, input.currentModel);
+    const target = this.targetFor(decision.tier);
     if (!target || this.same(target, input.currentModel)) {
       return {
         rated: true,
@@ -424,7 +466,7 @@ var S1Router = class {
         action: "keep",
         tier: decision.tier,
         target: null,
-        reason: "cheap tier is the session default \u2014 no switch needed",
+        reason: decision.tier === "cheap" ? "cheap tier is the session default \u2014 no switch needed" : `no ${decision.tier} tier configured \u2014 no switch needed`,
         ms: now()
       };
     }
@@ -462,7 +504,17 @@ var plugin = {
     if (options.disabled) return;
     const agents = new Set(options.agents ?? DEFAULT_AGENTS);
     const cadence = options.cadence ?? "every-step";
+    const debug = options.debug === true;
     const routers = /* @__PURE__ */ new Map();
+    const debugFile = join2(homedir2(), ".local", "share", "opencode", "s1router-debug.log");
+    const log = (...args) => {
+      if (!debug) return;
+      try {
+        appendFileSync(debugFile, `${(/* @__PURE__ */ new Date()).toISOString()} ${args.map((a) => typeof a === "string" ? a : JSON.stringify(a)).join(" ")}
+`);
+      } catch {
+      }
+    };
     const routerFor = (sessionID) => {
       let r = routers.get(sessionID);
       if (!r) {
@@ -483,16 +535,28 @@ var plugin = {
     const announce = (sessionID, text) => {
       void ctx.session.synthetic({
         sessionID,
-        text
-      }).catch(() => {
-      });
+        text,
+        description: text
+      }).catch((err) => log("announce failed:", String(err)));
     };
     await ctx.session.hook("context", async (event) => {
-      if (!agents.has(event.agent)) return;
+      log(`context hook fired: agent=${event.agent} session=${event.sessionID} model=${event.model?.providerID}/${event.model?.id} messages=${event.messages.length}`);
+      if (!agents.has(event.agent)) {
+        log(`skip: agent not in [${[
+          ...agents
+        ].join(",")}]`);
+        return;
+      }
       const router = routerFor(event.sessionID);
       const ask = latestUserText(event.messages);
-      if (!ask) return;
-      if (cadence === "per-turn" && lastToolPart(event.messages)) return;
+      if (!ask) {
+        log("skip: no user text found in messages");
+        return;
+      }
+      if (cadence === "per-turn" && lastToolPart(event.messages)) {
+        log("skip: per-turn cadence on tool continuation");
+        return;
+      }
       const events = digestEvents(event.messages);
       const currentModel = {
         providerID: event.model.providerID,
@@ -505,9 +569,11 @@ var plugin = {
           events,
           currentModel
         });
-      } catch {
+      } catch (err) {
+        log("router.step threw:", err);
         return;
       }
+      log(`rated: score=${result.score?.toFixed(2) ?? "-"} action=${result.action} reason=${result.reason}`);
       if (result.action === "switch" && result.target) {
         try {
           await ctx.session.switchModel({
@@ -538,6 +604,9 @@ var plugin = {
         }
       });
     }
+    log(`setup complete: agents=[${[
+      ...agents
+    ].join(",")}] cadence=${cadence} ladder=${options.ladder?.cheap?.id ?? "(session default)"} -> ${options.ladder?.medium?.id ?? "(no medium)"} -> ${options.ladder?.strong?.id ?? "(none)"}`);
     await ctx.command.transform((editor) => {
       editor.add({
         name: "routing-stats",
@@ -553,11 +622,14 @@ var plugin = {
           }
           const s = r.stats();
           const st = r.snapshotState();
+          const h = r.hysteresisConfig();
+          const ladder = r.ladderConfig();
           await ctx.session.synthetic({
             sessionID,
             text: [
               `s1router: ${s.steps} steps rated, ${s.switches} switches, ${s.skips} skips.`,
-              `State: tier=${st.tier}, last score=${st.lastScore?.toFixed(2) ?? "n/a"}, up-streak=${st.upStreak}, down-streak=${st.downStreak}/${r.stats().steps > 0 ? "2" : "2"}.`,
+              `Ladder: ${ladder.cheap?.id ?? "(session default)"} -> ${ladder.medium?.id ?? "(no medium)"} -> ${ladder.strong.id}.`,
+              `State: tier=${st.tier}, last score=${st.lastScore?.toFixed(2) ?? "n/a"}, up-streak=${st.upStreak}, down-streak=${st.downStreak}/${h.downStreak}.`,
               `Rater: ${s.calls} calls, ${s.inputTokens} in / ${s.outputTokens} out tokens, ${Math.round(s.totalMs)}ms, ${s.cacheHits} cache hits, ${s.failures} failures.`
             ].join("\n")
           });
@@ -567,12 +639,23 @@ var plugin = {
   }
 };
 var src_default = plugin;
+function partsOf(msg) {
+  if (Array.isArray(msg.parts)) return msg.parts;
+  if (Array.isArray(msg.content)) return msg.content;
+  if (typeof msg.content === "string") return [
+    {
+      type: "text",
+      text: msg.content
+    }
+  ];
+  return [];
+}
 function latestUserText(messages) {
   for (let i = messages.length - 1; i >= 0; i--) {
     const msg = messages[i];
     if (msg?.role !== "user") continue;
     const texts = [];
-    for (const part of msg.parts ?? []) {
+    for (const part of partsOf(msg)) {
       const p = part;
       if (p.type === "text" && typeof p.text === "string") texts.push(p.text);
     }
@@ -592,7 +675,7 @@ function digestEvents(messages) {
     const msg = raw;
     if (!msg) continue;
     if (msg.role === "user") {
-      for (const part of msg.parts ?? []) {
+      for (const part of partsOf(msg)) {
         const p = part;
         if (p.type === "text" && p.text) {
           events.push({
@@ -603,7 +686,7 @@ function digestEvents(messages) {
         }
       }
     }
-    for (const part of msg.parts ?? []) {
+    for (const part of partsOf(msg)) {
       const p = part;
       if (p.type !== "tool" || !p.tool) continue;
       const status = p.state?.status;
@@ -628,5 +711,7 @@ function digestEvents(messages) {
   return events;
 }
 export {
-  src_default as default
+  src_default as default,
+  latestUserText,
+  partsOf
 };

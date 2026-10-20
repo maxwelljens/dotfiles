@@ -12,6 +12,10 @@
   // "per-turn" rates only at prompt admission (fully documented path).
   "cadence": "every-step",
 
+  // Append routing decisions to ~/.local/share/opencode/s1router-debug.log.
+  // Set to false to silence once you trust the ladder.
+  "debug": true,
+
   "decision": {
     // The System-One decision model (Ollama, `decision` capability).
     "baseUrl": "http://localhost:11434",
@@ -21,18 +25,22 @@
     "timeoutMs": 6000
   },
 
-  // Cheap-first ladder: escalate on complexity, de-escalate back to cheap.
-  // Leave "cheap" unset to fall back to "the session default" instead.
+  // Cheap-first ladder: escalate on complexity, de-escalate one rung at a
+  // time. Leave "cheap" unset to fall back to "the session default"; leave
+  // "medium" out entirely for the original two-tier (cheap -> strong) ladder.
   "ladder": {
     "cheap": { "providerID": "opencode-go", "id": "deepseek-v4.1-flash" },
+    "medium": { "providerID": "opencode-go", "id": "mimo-v2.6-flash" },
     "strong": { "providerID": "xiaomi", "id": "mimo-v2.6-pro" }
   },
 
-  // Hysteresis band on the 0-4 ladder (trivial..hard). Up at >= 2.0;
-  // down only after 2 consecutive <= 1.0; no downgrade in the first 2
-  // ratings. Absorbs the measured ~±0.1 rater noise.
+  // Hysteresis bands on the 0-4 ladder (trivial..hard). Up to medium at
+  // >= 2.0 (moderate); up to strong at >= 3.0 (complex — skips medium);
+  // down one rung only after 2 consecutive <= 1.0; no downgrade in the
+  // first 2 ratings. Absorbs the measured ~±0.1 rater noise.
   "hysteresis": {
     "upThreshold": 2.0,
+    "strongThreshold": 3.0,
     "downThreshold": 1.0,
     "downStreak": 2,
     "bootstrapRatings": 2

@@ -2,6 +2,7 @@
 
 alias obliterate="git filter-repo --invert-paths --force --path"
 alias clipdiff="git diff --no-prefix -U8 | dms cl copy"
+alias oc="headroom wrap opencode"
 
 # --- Exports ---
 
