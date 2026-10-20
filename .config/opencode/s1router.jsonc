@@ -1,0 +1,47 @@
+{
+  // s1router — System-One model routing for OpenCode.
+  // Read by opencode-plugin-s1router at plugin setup; restart the session
+  // (or `opencode service restart`) after edits.
+  //
+  // Precedence: this file > plugin options in opencode.json(c) > defaults.
+
+  // Agents whose requests are routed. Subagent agent-pins are never touched.
+  "agents": ["build", "plan"],
+
+  // "every-step" rates every agent-loop model call (best-effort switchModel);
+  // "per-turn" rates only at prompt admission (fully documented path).
+  "cadence": "every-step",
+
+  "decision": {
+    // The System-One decision model (Ollama, `decision` capability).
+    "baseUrl": "http://localhost:11434",
+    "model": "tev1:4b",
+    // Per-rating timeout. A full ~2k-token digest rates in ~0.4-0.65s;
+    // timeouts fail open (no switch, stock OpenCode behavior).
+    "timeoutMs": 6000
+  },
+
+  // Cheap-first ladder: escalate on complexity, de-escalate back to cheap.
+  // Leave "cheap" unset to fall back to "the session default" instead.
+  "ladder": {
+    "cheap": { "providerID": "opencode-go", "id": "deepseek-v4.1-flash" },
+    "strong": { "providerID": "xiaomi", "id": "mimo-v2.6-pro" }
+  },
+
+  // Hysteresis band on the 0-4 ladder (trivial..hard). Up at >= 2.0;
+  // down only after 2 consecutive <= 1.0; no downgrade in the first 2
+  // ratings. Absorbs the measured ~±0.1 rater noise.
+  "hysteresis": {
+    "upThreshold": 2.0,
+    "downThreshold": 1.0,
+    "downStreak": 2,
+    "bootstrapRatings": 2
+  },
+
+  // What the rater sees besides the latest user ask.
+  "rater": {
+    "maxEvents": 12,
+    "detailChars": 200,
+    "maxChars": 8000
+  }
+}
