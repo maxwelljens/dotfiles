@@ -79,10 +79,9 @@ For each candidate, render a card with:
 End the report with a **Top recommendation** section: which candidate you'd
 tackle first and why.
 
-**Use CONTEXT.md vocabulary for the domain, and the `/codebase-design`
-vocabulary for the architecture.** If `CONTEXT.md` defines "Order," talk about
-"the Order intake module," not "the FooBarHandler," and not "the Order
-service."
+**Use CONTEXT.md vocabulary for the domain.** If `CONTEXT.md` defines "Order,"
+talk about "the Order intake module," not "the FooBarHandler," and not "the
+Order service."
 
 **ADR conflicts**: if a candidate contradicts an existing ADR, only surface it
 when the friction is real enough to warrant revisiting the ADR. Mark it clearly
@@ -104,6 +103,3 @@ of these would you like to explore?"
   don't re-suggest it?"_ Only offer when the reason would actually be needed by
   a future explorer to avoid re-suggesting the same thing; skip ephemeral
   reasons ("not worth it right now") and self-evident ones.
-- **Want to explore alternative interfaces for the deepened module?** Call the
-  Skill tool with "codebase-design" and use its design-it-twice parallel
-  sub-agent pattern.
