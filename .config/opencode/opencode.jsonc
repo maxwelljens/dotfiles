@@ -62,31 +62,6 @@
           "X-API-Key": "sk-tinyfish-Hk4da2Ru0JRQthjvQjo8c8p_mlioAH3A"
         }
       }
-    },
-    "headroom": {
-      "type": "local",
-      "command": [
-        "/home/mjensen/.local/bin/headroom",
-        "mcp",
-        "serve"
-      ],
-      "enabled": true
-    },
-    "serena": {
-      "type": "local",
-      "command": [
-        "uvx",
-        "--from",
-        "serena-agent",
-        "serena",
-        "start-mcp-server",
-        "--project-from-cwd",
-        "--context",
-        "agent",
-        "--open-web-dashboard",
-        "False"
-      ],
-      "enabled": true
     }
   },
   "permission": {
@@ -163,31 +138,6 @@
     },
     "researcher": {
       "model": "xiaomi/mimo-v2.6-flash"
-    }
-  },
-  "provider": {
-    "headroom": {
-      "npm": "@ai-sdk/openai-compatible",
-      "name": "Headroom Proxy",
-      "options": {
-        "baseURL": "http://127.0.0.1:8787/v1"
-      },
-      "models": {
-        "gpt-4o": {
-          "name": "GPT-4o",
-          "limit": {
-            "context": 128000,
-            "output": 16384
-          }
-        },
-        "gpt-4.1": {
-          "name": "GPT-4.1",
-          "limit": {
-            "context": 1048576,
-            "output": 32768
-          }
-        }
-      }
     }
   }
 }
