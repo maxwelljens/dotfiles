@@ -18,17 +18,23 @@ decisions.
 
 ## Subagent Spawning
 
-Delegate to a subagent only for large tasks that are genuinely independent and
+Delegate to a subagent only for tasks that are genuinely independent and
 parallelisable. Do not delegate work you can finish yourself in a handful of
 tool calls, and do not use subagents to verify or double-check your own work.
 Your task brief is a subagent's only source of intent: include paths, goals,
 and constraints explicitly in every spawn.
 
-If one subagent can complete the task, use one rather than several, and keep
-spawn counts reasonable. However, be eager in parallel work, delegating as much
-as possible to the background while working continuously. If parallel work has
-the potential to collide, resolve using git worktrees or similar tools if
-applicable in context.
+However, subagents are several times faster than you. Be eager in parallel
+work, delegating as much as possible to the background while orchestrating
+continuously. If parallel work has the potential to collide, resolve using git
+worktrees or similar tools if applicable in context.
+
+## Grounding in Real Information
+
+It is important to ground work in real information that is available on the
+Internet. Do not guess or take shortcuts when working on tasks with multiple
+unknown variables. Tools should be available to you to quickly search the
+Internet, as well as the `researcher` subagent.
 
 ## Context Hygiene Rules
 
