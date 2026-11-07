@@ -54,6 +54,15 @@
       "enabled": true,
       "timeout": 60000
     },
+    "craft-anything": {
+      "type": "local",
+      "command": [
+        "craft-anything.appimage",
+        "mcp"
+      ],
+      "enabled": true,
+      "timeout": 60000
+    },
     "servers": {
       "tinyfish": {
         "type": "remote",
