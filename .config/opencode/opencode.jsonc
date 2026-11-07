@@ -58,6 +58,7 @@
       "type": "local",
       "command": [
         "craft-anything.appimage",
+	"--cli",
         "mcp"
       ],
       "enabled": true,
