@@ -138,7 +138,7 @@
       "model": "opencode-go/deepseek-v4.1-flash"
     },
     "documenter": {
-      "model": "xiaomi/mimo-v2.6-flash"
+      "model": "opencode-go/mimo-v2.6-flash"
     },
     "terminal-worker": {
       "model": "opencode-go/deepseek-v4.1-flash"
@@ -147,7 +147,7 @@
       "model": "opencode-go/deepseek-v4.1-flash"
     },
     "researcher": {
-      "model": "xiaomi/mimo-v2.6-flash"
+      "model": "opencode-go/mimo-v2.6-flash"
     }
   }
 }
