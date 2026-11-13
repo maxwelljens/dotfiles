@@ -96,7 +96,7 @@
       ]
     },
     "code-executor": {
-      "model": "opencode-go/deepseek-v4.1-flash",
+      "model": "xiaomi/mimo-v2.6-flash",
       "permissions": [
         {
           "action": "subagent",
