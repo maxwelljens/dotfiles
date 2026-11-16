@@ -96,7 +96,7 @@
       ]
     },
     "code-executor": {
-      "model": "xiaomi/mimo-v2.6-flash",
+      "model": "alibaba/deepseek-v4.1-flash",
       "permissions": [
         {
           "action": "subagent",
@@ -126,29 +126,276 @@
       ]
     },
     "code-reviewer": {
-      //"model": "opencode-go/deepseek-v4.1-flash"
-      "model": "xiaomi/mimo-v2.6-flash"
+      "model": "alibaba/deepseek-v4.1-flash"
     },
     "committer": {
-      "model": "xiaomi/mimo-v2.6-flash"
+      "model": "alibaba/deepseek-v4.1-flash"
     },
     "explore": {
-      "model": "xiaomi/mimo-v2.6-flash"
+      "model": "alibaba/deepseek-v4.1-flash"
     },
     "debugger": {
-      "model": "xiaomi/mimo-v2.6-flash"
+      "model": "alibaba/deepseek-v4.1-flash"
     },
     "documenter": {
-      "model": "xiaomi/mimo-v2.6-flash"
+      "model": "alibaba/deepseek-v4.1-flash"
     },
     "terminal-worker": {
-      "model": "xiaomi/mimo-v2.6-flash"
+      "model": "alibaba/deepseek-v4.1-flash"
     },
     "test-automator": {
-      "model": "xiaomi/mimo-v2.6-flash"
+      "model": "alibaba/deepseek-v4.1-flash"
     },
     "researcher": {
-      "model": "xiaomi/mimo-v2.6-flash"
+      "model": "alibaba/deepseek-v4.1-flash"
+    }
+  },
+
+  // Alibaba config
+
+  "provider": {
+    "alibaba": {
+      "npm": "@ai-sdk/anthropic",
+      "name": "Alibaba Cloud Model Studio",
+      "options": {
+        "baseURL": "https://token-plan.ap-southeast-1.maas.aliyuncs.com/apps/anthropic/v1",
+        "apiKey": "ALIBABA_API_KEY"
+      },
+      "models": {
+        "auto": {
+          "name": "Auto",
+          "modalities": {
+            "input": [
+              "text"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "limit": {
+            "context": 1000000,
+            "output": 393216
+          }
+        },
+        "qwen4-max-preview": {
+          "name": "Qwen4.0 Max Preview",
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "limit": {
+            "context": 1000000,
+            "output": 131072
+          }
+        },
+        "qwen4-max": {
+          "name": "Qwen4 Max",
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "limit": {
+            "context": 1000000,
+            "output": 262144
+          }
+        },
+        "qwen3.8-max": {
+          "name": "Qwen3.8 Max",
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "limit": {
+            "context": 1000000,
+            "output": 131072
+          }
+        },
+        "qwen3.8-flash": {
+          "name": "Qwen3.8 Flash",
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "limit": {
+            "context": 1000000,
+            "output": 131072
+          }
+        },
+        "qwen3.7-max": {
+          "name": "Qwen3.7 Max",
+          "modalities": {
+            "input": [
+              "text"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "limit": {
+            "context": 1000000,
+            "output": 65536
+          }
+        },
+        "qwen3.7-plus": {
+          "name": "Qwen3.7 Plus",
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "limit": {
+            "context": 1000000,
+            "output": 65536
+          }
+        },
+        "qwen3.6-flash": {
+          "name": "Qwen3.6 Flash",
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "limit": {
+            "context": 1000000,
+            "output": 65536
+          }
+        },
+        "deepseek-v4.1-flash": {
+          "name": "DeepSeek V4.1 Flash",
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "limit": {
+            "context": 1000000,
+            "output": 65536
+          }
+        },
+        "deepseek-v4.1-flash-1017": {
+          "name": "DeepSeek V4.1 Flash 1017",
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "limit": {
+            "context": 1000000,
+            "output": 65536
+          }
+        },
+        "deepseek-v4-pro": {
+          "name": "DeepSeek V4 Pro",
+          "modalities": {
+            "input": [
+              "text"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "limit": {
+            "context": 1000000,
+            "output": 65536
+          }
+        },
+        "deepseek-v4-pro-0813": {
+          "name": "DeepSeek V4 Pro 0813",
+          "modalities": {
+            "input": [
+              "text"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "limit": {
+            "context": 1000000,
+            "output": 65536
+          }
+        },
+        "deepseek-v4-flash-0731": {
+          "name": "DeepSeek V4 Flash 0731",
+          "modalities": {
+            "input": [
+              "text"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "limit": {
+            "context": 1000000,
+            "output": 65536
+          }
+        },
+        "glm-5.3": {
+          "name": "GLM-5.3",
+          "modalities": {
+            "input": [
+              "text"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "limit": {
+            "context": 202752,
+            "output": 16384
+          }
+        },
+        "glm-5.2": {
+          "name": "GLM-5.2",
+          "modalities": {
+            "input": [
+              "text"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "limit": {
+            "context": 202752,
+            "output": 16384
+          }
+        }
+      }
     }
   }
 }
