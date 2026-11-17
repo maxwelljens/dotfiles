@@ -153,18 +153,19 @@
 
   // Alibaba config
 
-  "provider": {
+  "providers": {
     "alibaba": {
-      "npm": "@ai-sdk/anthropic",
       "name": "Alibaba Cloud Model Studio",
-      "options": {
-        "baseURL": "https://token-plan.ap-southeast-1.maas.aliyuncs.com/apps/anthropic/v1",
-        "apiKey": "ALIBABA_API_KEY"
+      "env": ["ALIBABA_API_KEY"],
+      "package": "@opencode/ai/providers/anthropic-compatible",
+      "settings": {
+        "baseURL": "https://token-plan.ap-southeast-1.maas.aliyuncs.com/apps/anthropic/v1"
       },
       "models": {
         "auto": {
           "name": "Auto",
-          "modalities": {
+          "capabilities": {
+            "tools": true,
             "input": [
               "text"
             ],
@@ -179,7 +180,8 @@
         },
         "qwen4-max-preview": {
           "name": "Qwen4.0 Max Preview",
-          "modalities": {
+          "capabilities": {
+            "tools": true,
             "input": [
               "text",
               "image"
@@ -195,7 +197,8 @@
         },
         "qwen4-max": {
           "name": "Qwen4 Max",
-          "modalities": {
+          "capabilities": {
+            "tools": true,
             "input": [
               "text",
               "image"
@@ -211,7 +214,8 @@
         },
         "qwen3.8-max": {
           "name": "Qwen3.8 Max",
-          "modalities": {
+          "capabilities": {
+            "tools": true,
             "input": [
               "text",
               "image"
@@ -227,7 +231,8 @@
         },
         "qwen3.8-flash": {
           "name": "Qwen3.8 Flash",
-          "modalities": {
+          "capabilities": {
+            "tools": true,
             "input": [
               "text",
               "image"
@@ -243,7 +248,8 @@
         },
         "qwen3.7-max": {
           "name": "Qwen3.7 Max",
-          "modalities": {
+          "capabilities": {
+            "tools": true,
             "input": [
               "text"
             ],
@@ -258,7 +264,8 @@
         },
         "qwen3.7-plus": {
           "name": "Qwen3.7 Plus",
-          "modalities": {
+          "capabilities": {
+            "tools": true,
             "input": [
               "text",
               "image"
@@ -274,7 +281,8 @@
         },
         "qwen3.6-flash": {
           "name": "Qwen3.6 Flash",
-          "modalities": {
+          "capabilities": {
+            "tools": true,
             "input": [
               "text",
               "image"
@@ -290,7 +298,8 @@
         },
         "deepseek-v4.1-flash": {
           "name": "DeepSeek V4.1 Flash",
-          "modalities": {
+          "capabilities": {
+            "tools": true,
             "input": [
               "text",
               "image"
@@ -306,7 +315,8 @@
         },
         "deepseek-v4.1-flash-1017": {
           "name": "DeepSeek V4.1 Flash 1017",
-          "modalities": {
+          "capabilities": {
+            "tools": true,
             "input": [
               "text",
               "image"
@@ -322,7 +332,8 @@
         },
         "deepseek-v4-pro": {
           "name": "DeepSeek V4 Pro",
-          "modalities": {
+          "capabilities": {
+            "tools": true,
             "input": [
               "text"
             ],
@@ -337,7 +348,8 @@
         },
         "deepseek-v4-pro-0813": {
           "name": "DeepSeek V4 Pro 0813",
-          "modalities": {
+          "capabilities": {
+            "tools": true,
             "input": [
               "text"
             ],
@@ -352,7 +364,8 @@
         },
         "deepseek-v4-flash-0731": {
           "name": "DeepSeek V4 Flash 0731",
-          "modalities": {
+          "capabilities": {
+            "tools": true,
             "input": [
               "text"
             ],
@@ -367,7 +380,8 @@
         },
         "glm-5.3": {
           "name": "GLM-5.3",
-          "modalities": {
+          "capabilities": {
+            "tools": true,
             "input": [
               "text"
             ],
@@ -382,7 +396,8 @@
         },
         "glm-5.2": {
           "name": "GLM-5.2",
-          "modalities": {
+          "capabilities": {
+            "tools": true,
             "input": [
               "text"
             ],
