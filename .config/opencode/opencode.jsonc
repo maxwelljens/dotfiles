@@ -96,7 +96,7 @@
       ]
     },
     "code-executor": {
-      "model": "alibaba/deepseek-v4.1-flash",
+      "model": "hy4-flash-free",
       "permissions": [
         {
           "action": "subagent",
@@ -126,291 +126,28 @@
       ]
     },
     "code-reviewer": {
-      "model": "alibaba/deepseek-v4.1-flash"
+      "model": "hy4-flash-free"
     },
     "committer": {
-      "model": "alibaba/deepseek-v4.1-flash"
+      "model": "hy4-flash-free"
     },
     "explore": {
-      "model": "alibaba/deepseek-v4.1-flash"
+      "model": "hy4-flash-free"
     },
     "debugger": {
-      "model": "alibaba/deepseek-v4.1-flash"
+      "model": "hy4-flash-free"
     },
     "documenter": {
-      "model": "alibaba/deepseek-v4.1-flash"
+      "model": "hy4-flash-free"
     },
     "terminal-worker": {
-      "model": "alibaba/deepseek-v4.1-flash"
+      "model": "hy4-flash-free"
     },
     "test-automator": {
-      "model": "alibaba/deepseek-v4.1-flash"
+      "model": "hy4-flash-free"
     },
     "researcher": {
-      "model": "alibaba/deepseek-v4.1-flash"
-    }
-  },
-
-  // Alibaba config
-
-  "providers": {
-    "alibaba": {
-      "name": "Alibaba Cloud Model Studio",
-      "env": ["ALIBABA_API_KEY"],
-      "package": "@opencode/ai/providers/anthropic-compatible",
-      "settings": {
-        "baseURL": "https://token-plan.ap-southeast-1.maas.aliyuncs.com/apps/anthropic/v1"
-      },
-      "models": {
-        "auto": {
-          "name": "Auto",
-          "capabilities": {
-            "tools": true,
-            "input": [
-              "text"
-            ],
-            "output": [
-              "text"
-            ]
-          },
-          "limit": {
-            "context": 1000000,
-            "output": 393216
-          }
-        },
-        "qwen4-max-preview": {
-          "name": "Qwen4.0 Max Preview",
-          "capabilities": {
-            "tools": true,
-            "input": [
-              "text",
-              "image"
-            ],
-            "output": [
-              "text"
-            ]
-          },
-          "limit": {
-            "context": 1000000,
-            "output": 131072
-          }
-        },
-        "qwen4-max": {
-          "name": "Qwen4 Max",
-          "capabilities": {
-            "tools": true,
-            "input": [
-              "text",
-              "image"
-            ],
-            "output": [
-              "text"
-            ]
-          },
-          "limit": {
-            "context": 1000000,
-            "output": 262144
-          }
-        },
-        "qwen3.8-max": {
-          "name": "Qwen3.8 Max",
-          "capabilities": {
-            "tools": true,
-            "input": [
-              "text",
-              "image"
-            ],
-            "output": [
-              "text"
-            ]
-          },
-          "limit": {
-            "context": 1000000,
-            "output": 131072
-          }
-        },
-        "qwen3.8-flash": {
-          "name": "Qwen3.8 Flash",
-          "capabilities": {
-            "tools": true,
-            "input": [
-              "text",
-              "image"
-            ],
-            "output": [
-              "text"
-            ]
-          },
-          "limit": {
-            "context": 1000000,
-            "output": 131072
-          }
-        },
-        "qwen3.7-max": {
-          "name": "Qwen3.7 Max",
-          "capabilities": {
-            "tools": true,
-            "input": [
-              "text"
-            ],
-            "output": [
-              "text"
-            ]
-          },
-          "limit": {
-            "context": 1000000,
-            "output": 65536
-          }
-        },
-        "qwen3.7-plus": {
-          "name": "Qwen3.7 Plus",
-          "capabilities": {
-            "tools": true,
-            "input": [
-              "text",
-              "image"
-            ],
-            "output": [
-              "text"
-            ]
-          },
-          "limit": {
-            "context": 1000000,
-            "output": 65536
-          }
-        },
-        "qwen3.6-flash": {
-          "name": "Qwen3.6 Flash",
-          "capabilities": {
-            "tools": true,
-            "input": [
-              "text",
-              "image"
-            ],
-            "output": [
-              "text"
-            ]
-          },
-          "limit": {
-            "context": 1000000,
-            "output": 65536
-          }
-        },
-        "deepseek-v4.1-flash": {
-          "name": "DeepSeek V4.1 Flash",
-          "capabilities": {
-            "tools": true,
-            "input": [
-              "text",
-              "image"
-            ],
-            "output": [
-              "text"
-            ]
-          },
-          "limit": {
-            "context": 1000000,
-            "output": 65536
-          }
-        },
-        "deepseek-v4.1-flash-1017": {
-          "name": "DeepSeek V4.1 Flash 1017",
-          "capabilities": {
-            "tools": true,
-            "input": [
-              "text",
-              "image"
-            ],
-            "output": [
-              "text"
-            ]
-          },
-          "limit": {
-            "context": 1000000,
-            "output": 65536
-          }
-        },
-        "deepseek-v4-pro": {
-          "name": "DeepSeek V4 Pro",
-          "capabilities": {
-            "tools": true,
-            "input": [
-              "text"
-            ],
-            "output": [
-              "text"
-            ]
-          },
-          "limit": {
-            "context": 1000000,
-            "output": 65536
-          }
-        },
-        "deepseek-v4-pro-0813": {
-          "name": "DeepSeek V4 Pro 0813",
-          "capabilities": {
-            "tools": true,
-            "input": [
-              "text"
-            ],
-            "output": [
-              "text"
-            ]
-          },
-          "limit": {
-            "context": 1000000,
-            "output": 65536
-          }
-        },
-        "deepseek-v4-flash-0731": {
-          "name": "DeepSeek V4 Flash 0731",
-          "capabilities": {
-            "tools": true,
-            "input": [
-              "text"
-            ],
-            "output": [
-              "text"
-            ]
-          },
-          "limit": {
-            "context": 1000000,
-            "output": 65536
-          }
-        },
-        "glm-5.3": {
-          "name": "GLM-5.3",
-          "capabilities": {
-            "tools": true,
-            "input": [
-              "text"
-            ],
-            "output": [
-              "text"
-            ]
-          },
-          "limit": {
-            "context": 202752,
-            "output": 16384
-          }
-        },
-        "glm-5.2": {
-          "name": "GLM-5.2",
-          "capabilities": {
-            "tools": true,
-            "input": [
-              "text"
-            ],
-            "output": [
-              "text"
-            ]
-          },
-          "limit": {
-            "context": 202752,
-            "output": 16384
-          }
-        }
-      }
+      "model": "hy4-flash-free"
     }
   }
 }
