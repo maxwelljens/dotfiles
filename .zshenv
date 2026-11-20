@@ -15,6 +15,7 @@ export HYPER_API_KEY="$(pass show hyper/api_key 2>/dev/null)"
 export XIAOMI_API_KEY="$(pass show xiaomi/api_key 2>/dev/null)"
 export DEEPSEEK_API_KEY="$(pass show deepseek/api_key 2>/dev/null)"
 export ALIBABA_API_KEY="$(pass show alibaba/api_key 2>/dev/null)"
+export TENCENT_API_KEY="$(pass show tencent/api_key 2>/dev/null)"
 export OPENCODE_API_KEY="$(pass show opencode/api_key 2>/dev/null)"
 export TINYFISH_API_KEY="$(pass show tinyfish/api_key 2>/dev/null)"
 
