@@ -96,7 +96,7 @@
       ]
     },
     "code-executor": {
-      "model": "hy4-flash-free",
+      "model": "tencent/hy4-flash",
       "permissions": [
         {
           "action": "subagent",
@@ -126,28 +126,28 @@
       ]
     },
     "code-reviewer": {
-      "model": "hy4-flash-free"
+      "model": "tencent/hy4-flash"
     },
     "committer": {
-      "model": "hy4-flash-free"
+      "model": "tencent/hy4-flash"
     },
     "explore": {
-      "model": "hy4-flash-free"
+      "model": "tencent/hy4-flash"
     },
     "debugger": {
-      "model": "hy4-flash-free"
+      "model": "tencent/hy4-flash"
     },
     "documenter": {
-      "model": "hy4-flash-free"
+      "model": "tencent/hy4-flash"
     },
     "terminal-worker": {
-      "model": "hy4-flash-free"
+      "model": "tencent/hy4-flash"
     },
     "test-automator": {
-      "model": "hy4-flash-free"
+      "model": "tencent/hy4-flash"
     },
     "researcher": {
-      "model": "hy4-flash-free"
+      "model": "tencent/hy4-flash"
     }
   },
 
