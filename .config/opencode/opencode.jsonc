@@ -96,7 +96,7 @@
       ]
     },
     "code-executor": {
-      "model": "tencent/hy4-flash",
+      "model": "deepseek-v4-flash",
       "permissions": [
         {
           "action": "subagent",
@@ -126,28 +126,28 @@
       ]
     },
     "code-reviewer": {
-      "model": "tencent/hy4-flash"
+      "model": "deepseek-v4-flash"
     },
     "committer": {
-      "model": "tencent/hy4-flash"
+      "model": "deepseek-v4-flash"
     },
     "explore": {
-      "model": "tencent/hy4-flash"
+      "model": "deepseek-v4-flash"
     },
     "debugger": {
-      "model": "tencent/hy4-flash"
+      "model": "deepseek-v4-flash"
     },
     "documenter": {
-      "model": "tencent/hy4-flash"
+      "model": "deepseek-v4-flash"
     },
     "terminal-worker": {
-      "model": "tencent/hy4-flash"
+      "model": "deepseek-v4-flash"
     },
     "test-automator": {
-      "model": "tencent/hy4-flash"
+      "model": "deepseek-v4-flash"
     },
     "researcher": {
-      "model": "tencent/hy4-flash"
+      "model": "deepseek-v4-flash"
     }
   },
 
