@@ -149,5 +149,146 @@
     "researcher": {
       "model": "hy4-flash-free"
     }
+  },
+
+  // Tencent Cloud Token Plan (TokenHub)
+  "providers": {
+    "tencent": {
+      "name": "Tencent Token Plan",
+      "env": ["TENCENT_API_KEY"],
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {
+        "baseURL": "https://tokenhub-intl.tencentcloudmaas.com/plan/v3"
+      },
+      "models": {
+        "auto": {
+          "name": "Auto",
+          "capabilities": {
+            "tools": true,
+            "input": ["text"],
+            "output": ["text"]
+          },
+          "body": {
+            "thinking": {
+              "type": "enabled"
+            }
+          }
+        },
+        "hy4": {
+          "name": "Hunyuan 4",
+          "capabilities": {
+            "tools": true,
+            "input": ["text"],
+            "output": ["text"]
+          },
+          "limit": {
+            "context": 1024000,
+            "output": 64000
+          },
+          "body": {
+            "thinking": {
+              "type": "enabled"
+            }
+          }
+        },
+        "hy4-flash": {
+          "name": "Hunyuan 4 Flash",
+          "capabilities": {
+            "tools": true,
+            "input": ["text"],
+            "output": ["text"]
+          },
+          "limit": {
+            "context": 1024000,
+            "output": 64000
+          },
+          "body": {
+            "thinking": {
+              "type": "enabled"
+            }
+          }
+        },
+        "kimi-k2.6": {
+          "name": "Kimi-K2.6",
+          "capabilities": {
+            "tools": true,
+            "input": ["text"],
+            "output": ["text"]
+          },
+          "limit": {
+            "context": 256000
+          },
+          "body": {
+            "thinking": {
+              "type": "enabled"
+            }
+          }
+        },
+        "minimax-m3": {
+          "name": "MiniMax-M3",
+          "capabilities": {
+            "tools": true,
+            "input": ["text"],
+            "output": ["text"]
+          },
+          "limit": {
+            "context": 1000000
+          },
+          "body": {
+            "thinking": {
+              "type": "enabled"
+            }
+          }
+        },
+        "glm-5.2": {
+          "name": "GLM-5.2",
+          "capabilities": {
+            "tools": true,
+            "input": ["text"],
+            "output": ["text"]
+          },
+          "limit": {
+            "context": 1000000
+          },
+          "body": {
+            "thinking": {
+              "type": "enabled"
+            }
+          }
+        },
+        "deepseek-v4-flash-202605": {
+          "name": "DeepSeek-V4-Flash Direct from Manufacturer",
+          "capabilities": {
+            "tools": true,
+            "input": ["text"],
+            "output": ["text"]
+          },
+          "limit": {
+            "context": 1024000
+          },
+          "body": {
+            "thinking": {
+              "type": "enabled"
+            }
+          }
+        },
+        "deepseek-v4-pro-202606": {
+          "name": "DeepSeek-V4-Pro Direct from Manufacturer",
+          "capabilities": {
+            "tools": true,
+            "input": ["text"],
+            "output": ["text"]
+          },
+          "limit": {
+            "context": 1024000
+          },
+          "body": {
+            "thinking": {
+              "type": "enabled"
+            }
+          }
+        }
+      }
+    }
   }
 }
