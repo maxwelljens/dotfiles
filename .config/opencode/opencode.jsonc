@@ -96,7 +96,7 @@
       ]
     },
     "code-executor": {
-      "model": "deepseek-v4-flash",
+      "model": "hy4-flash-free",
       "permissions": [
         {
           "action": "subagent",
@@ -126,28 +126,28 @@
       ]
     },
     "code-reviewer": {
-      "model": "deepseek-v4-flash"
+      "model": "hy4-flash-free"
     },
     "committer": {
-      "model": "deepseek-v4-flash"
+      "model": "hy4-flash-free"
     },
     "explore": {
-      "model": "deepseek-v4-flash"
+      "model": "hy4-flash-free"
     },
     "debugger": {
-      "model": "deepseek-v4-flash"
+      "model": "hy4-flash-free"
     },
     "documenter": {
-      "model": "deepseek-v4-flash"
+      "model": "hy4-flash-free"
     },
     "terminal-worker": {
-      "model": "deepseek-v4-flash"
+      "model": "hy4-flash-free"
     },
     "test-automator": {
-      "model": "deepseek-v4-flash"
+      "model": "hy4-flash-free"
     },
     "researcher": {
-      "model": "deepseek-v4-flash"
+      "model": "hy4-flash-free"
     }
   },
 
@@ -257,7 +257,7 @@
           }
         },
         "deepseek-v4-flash-202605": {
-          "name": "DeepSeek-V4-Flash Direct from Manufacturer",
+          "name": "deepseek-v4-flash Direct from Manufacturer",
           "capabilities": {
             "tools": true,
             "input": ["text"],
